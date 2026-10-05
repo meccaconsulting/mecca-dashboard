@@ -673,12 +673,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:38.574Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Energie-/Klimabezug (Gebäudemodell), aber primär Python-Datenmodellierung für Länder, nur teilweise raumplanerisch.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-fce17e7b-5563-4502-a253-e7d842edfa1e",
@@ -695,12 +695,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:39.396Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Klimastatusbericht des Klima- und Energiefonds: Studien-/Berichtsleistung im Klima-/Energiethema.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-a7a59c3b-eb3d-4466-a74c-e56c29e433b8",
@@ -717,12 +717,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:45.376Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Abruf aus IT-Rahmenvereinbarung der Sozialversicherung, IT-Organisationsberatung ohne Raumbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/668787-2026",
@@ -1210,12 +1210,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:40.220Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "KI-Verhaltenskodex zur digitalen Kompetenzoffensive, fachfremdes IT-/KI-Thema.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=fde58043-87ff-44b0-b6b0-3d089adfba4c-FN_227986z_BVergG-VIII-2-Z1_428069",
@@ -1232,12 +1232,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:46.196Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Allgemeine Beratungsdienstleistung eines Büromanagement-Unternehmens ohne erkennbaren Planungsbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/654592-2026",
@@ -1625,12 +1625,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:47.020Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Regiestunden für Autobahnbetreiber, vermutlich Bau-/Technikleistungen ohne Planungsfokus.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-7c8abd37-664f-4f74-aa52-32320dd7d3e1",
@@ -1697,12 +1697,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-20",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:47.849Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Interim-Management für den ÖBB-Konzern, fachfremde Personalleistung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/644760-2026",
@@ -1856,12 +1856,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:48.673Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Zukunftsszenarien-Entwicklung ist methodisch passend (Szenarien/Studie), aber Auftraggeber Unfallversicherung ohne Raumbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/638255-2026",
@@ -2069,12 +2069,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-15",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:49.497Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Planungs-, bauwirtschaftliche und rechtliche Beratung für Krankenhaus-Bauprojekt, Hochbau-Projektmanagement.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/631114-2026",
@@ -2522,12 +2522,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-09",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:41.048Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Waldentwicklungsprojektionen für Umweltbundesamt (WEM/WAM-Szenarien): Umwelt-/Klimastudie.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=505019f6-4c66-4ce4-9700-a5ed3cf664c3-61eb6d61-761d-4a10-b6b3-2a5660268e3a",
@@ -2566,12 +2566,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-08",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:41.869Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Weltraum-Laser-Ranging-System, Technik/Hardware ohne Bezug zur Raumplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/615291-2026",
@@ -2767,12 +2767,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-06",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:35.062Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Architektur- und Planungsleistungen für Gebäudesanierung, Hochbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/611422-2026",
@@ -2861,11 +2861,11 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:07:42.694Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Gesundheits-Anwendungsforschung in Primärversorgung, fachfremd.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:09:08.280Z"
   }
 ];
