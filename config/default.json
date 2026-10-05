@@ -10,12 +10,13 @@
     "79400000-8",
     "90712100-2",
     "90713000-8",
-    "72224000-1",
     "73210000-7",
     "75112100-5",
-    "85312320-8",
     "79421100-2",
-    "79411000-8"
+    "79411000-8",
+    "71400000-2",
+    "73200000-4",
+    "73300000-5"
   ],
   "cpvLabels": {
     "79421000-1": "Projektmanagement",
@@ -28,19 +29,19 @@
     "79400000-8": "Managementberatung",
     "90712100-2": "Umweltplanung",
     "90713000-8": "Umweltberatung",
-    "72224000-1": "IT-Projektmanagement",
     "73210000-7": "Forschungsberatung",
     "75112100-5": "Verwaltungsentwicklung",
-    "85312320-8": "Beratung",
     "79421100-2": "Projektaufsicht",
-    "79411000-8": "Managementberatung"
+    "79411000-8": "Managementberatung",
+    "71400000-2": "Stadt- und Landschaftsplanung",
+    "73200000-4": "F&E-Beratung",
+    "73300000-5": "F&E-Durchfuehrung"
   },
   "keywords": [
     "INTERREG",
     "Regionalentwicklung",
     "Raumplanung",
-    "Smart Village",
-    "Strategie"
+    "Smart Village"
   ],
   "portals": {
     "ted": true,

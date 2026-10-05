@@ -353,7 +353,10 @@ function formatCpvSearchTerm(code, labels = {}) {
 }
 
 function buildTedSearchTerms(config) {
-  const keywordTerms = config.searchTerms.map((value) => ({ type: "keyword", value }));
+  // TED durchsucht den Volltext (inkl. Uebersetzungen); allgemeine Begriffe wie "Studie"
+  // liefern dort viel Rauschen, daher optional eigene, engere Stichwortliste.
+  const keywords = Array.isArray(config.ted?.searchTerms) ? config.ted.searchTerms : config.searchTerms;
+  const keywordTerms = keywords.map((value) => ({ type: "keyword", value }));
 
   if (!config.includeCpvSearches) {
     return keywordTerms;
@@ -1098,6 +1101,7 @@ async function scrapeTed(config, logger, cutoffDate) {
 async function scrapeUsp(config, logger, cutoffDate) {
   const records = [];
   const seen = new Set();
+  const seenLinks = new Set();
   let detailCount = 0;
   const pageSize = config.usp.pageSize || USP_DEFAULT_PAGE_SIZE;
 
@@ -1134,6 +1138,11 @@ async function scrapeUsp(config, logger, cutoffDate) {
           continue;
         }
 
+        // Bereits ueber einen anderen Suchbegriff gefunden: Detailseite nicht erneut laden.
+        if (normalizedRow.link && seenLinks.has(normalizedRow.link)) {
+          continue;
+        }
+
         let detail = { cpvCodes: [], beschreibung: "", organisationLand: USP_DEFAULT_COUNTRY };
 
         if (detailCount < config.runtime.maxDetailsPerPortal && normalizedRow.link) {
@@ -1141,6 +1150,7 @@ async function scrapeUsp(config, logger, cutoffDate) {
             const html = await fetchUspText(normalizedRow.link, config);
             detail = extractUspDetailFromHtml(html);
             detailCount += 1;
+            await sleep(config.runtime.uspDelayMs || 0);
           } catch (error) {
             logger.warn("USP Detail konnte nicht geladen werden", {
               searchTerm,
@@ -1162,6 +1172,7 @@ async function scrapeUsp(config, logger, cutoffDate) {
         }
 
         seen.add(record._recordKey);
+        if (normalizedRow.link) seenLinks.add(normalizedRow.link);
         records.push(record);
 
         if (records.length >= config.runtime.maxRecordsPerPortal) {
@@ -1173,6 +1184,8 @@ async function scrapeUsp(config, logger, cutoffDate) {
         break;
       }
     }
+
+    await sleep(config.runtime.uspDelayMs || 0);
   }
 
   return records;
@@ -1308,6 +1321,7 @@ module.exports = {
   calculateCutoffDate,
   carryOverReviews,
   buildTedCountryFilter,
+  buildTedSearchTerms,
   buildTedWeeklyQuery,
   countryLabel,
   formatCpvSearchTerm,

@@ -1,11 +1,15 @@
 {
   "searchTerms": [
     "Raumplanung",
+    "Stadtplanung",
+    "Stadtentwicklung",
     "Regionalentwicklung",
-    "Projektmanagement",
     "INTERREG",
     "Smart Village",
-    "Strategie"
+    "Evaluierung",
+    "Studie",
+    "Mobilität",
+    "Klimaschutz"
   ],
   "includeCpvSearches": true,
   "maxAgeDays": 31,
@@ -14,11 +18,12 @@
     "navigationTimeoutMs": 45000,
     "requestTimeoutMs": 45000,
     "maxPagesPerSearch": 2,
-    "maxRecordsPerPortal": 150,
-    "maxDetailsPerPortal": 50,
+    "maxRecordsPerPortal": 300,
+    "maxDetailsPerPortal": 100,
     "pageSize": 50,
     "tedDelayMs": 750,
     "tedMaxRetries": 3,
+    "uspDelayMs": 700,
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
   },
   "output": {
@@ -29,6 +34,13 @@
   "ted": {
     "baseUrl": "https://api.ted.europa.eu/v3/notices/search",
     "scope": "ACTIVE",
+    "searchTerms": [
+      "Raumplanung",
+      "Stadtplanung",
+      "Regionalentwicklung",
+      "INTERREG",
+      "Smart Village"
+    ],
     "allowedBuyerCountries": [
       "AUT",
       "CZE",

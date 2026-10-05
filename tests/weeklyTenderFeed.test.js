@@ -9,6 +9,7 @@ const {
   ANKOE_SERVICE_CONTRACT_TYPE_ID,
   ankoeRecordMatchesContractType,
   buildTedCountryFilter,
+  buildTedSearchTerms,
   buildTedWeeklyQuery,
   buildUspDetailUrl,
   carryOverReviews,
@@ -50,6 +51,18 @@ test("formatCpvSearchTerm ergänzt lesbare CPV-Kurzlabels", () => {
   assert.equal(
     formatCpvSearchTerm("714100005", { "71410000-5": "Raumplanung" }),
     "CPV 71410000-5 - Raumplanung"
+  );
+});
+
+test("TED nutzt eigene Stichwortliste, falls konfiguriert", () => {
+  const base = { searchTerms: ["Studie", "Raumplanung"], includeCpvSearches: false };
+  assert.deepEqual(
+    buildTedSearchTerms(base).map((term) => term.value),
+    ["Studie", "Raumplanung"]
+  );
+  assert.deepEqual(
+    buildTedSearchTerms({ ...base, ted: { searchTerms: ["Raumplanung"] } }).map((term) => term.value),
+    ["Raumplanung"]
   );
 });
 
