@@ -16,12 +16,12 @@
     "veroeffentlichungsdatum": "2026-10-05",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:41.211Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Architektur-/Projektplanung für Garagen und Hochbau, keine Raumplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/683216-2026",
@@ -38,12 +38,12 @@
     "veroeffentlichungsdatum": "2026-10-05",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:55.509Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Beratung zur wissenschaftlichen Begutachtung von COMET-Anträgen, nur entfernt planungsnah.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/678971-2026",
@@ -118,12 +118,12 @@
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T11:00:05.888Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Hochbau-Bauleistung (Kulturzentrum), keine Planungsberatung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-25b32962-9494-4e02-8139-e1c6d3345d03",
@@ -143,12 +143,12 @@
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:13.450Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Städtebaulicher und freiraumplanerischer Realisierungswettbewerb in Wien, Kernthema Stadtplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-ed56ad88-6122-411c-b133-4b129708f3a9",
@@ -195,12 +195,12 @@
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:51.409Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Leasing von Fahrrädern, Liefer-/Mietleistung ohne Planungsbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=009b7802-0b04-4fee-8dac-3922bd5098ae-f1c30622-6000-4179-9b91-b98fe662dc37",
@@ -217,12 +217,12 @@
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:52.422Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Leasing von Fahrrädern, Liefer-/Mietleistung ohne Planungsbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-e3a8ebd9-4f1f-4114-933c-55806ae03ab0",
@@ -239,12 +239,12 @@
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:53.302Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Lieferleistung von Fahrrädern.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://steiermark.vergabeportal.at/Detail/256863",
@@ -300,12 +300,12 @@
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:35.164Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Städtebaulicher Ideenwettbewerb für Transformation eines Areals in Trutnov (CZ), Stadtplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/677789-2026",
@@ -323,12 +323,12 @@
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Slowakei",
     "scrapedAt": "2026-10-05T10:59:41.211Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Landschaftsplanungsstudie für die Region Trenčín nach Raumplanungsgesetz (SK).",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/676946-2026",
@@ -346,12 +346,12 @@
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T11:00:05.888Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Forstwirtschaftliche Leistungen, fachfremd.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-bdb2d453-518e-42da-a324-dc8bf6730718",
@@ -398,12 +398,12 @@
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:26.562Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Beratung zur wissenschaftlichen Begutachtung von COMET-Anträgen, nur entfernt planungsnah.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-e9806fc3-9fd2-4b46-86a1-caf6b1f34500",
@@ -420,12 +420,12 @@
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:01:04.935Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Moorrenaturierung als Bauausführung (Rossmoos), keine Planungsleistung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/672262-2026",
@@ -475,12 +475,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Slowakei",
     "scrapedAt": "2026-10-05T10:59:32.130Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Elektro-Projektierung Umspannwerk, technische Fachplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/670954-2026",
@@ -497,12 +497,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T11:00:05.888Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Medizintechnik-Beschaffung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-84d6174a-0f6f-4a8b-abe9-91ce1c81e147",
@@ -525,12 +525,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:18.062Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Vergabe eines Bauauftrags im Quartier, Bauausführung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-1d9ecc32-86e7-48c3-828d-81a491370f69",
@@ -569,12 +569,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:27.429Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Technische Risikoanalyse für Tunnelbestand, Tiefbau-/Sicherheitsthema.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-1d958049-ff44-4de4-874c-2c5d24827df7",
@@ -591,12 +591,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:28.297Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Ex-Post-Evaluierung der E-Mobilitätsoffensive, Evaluation im Mobilitäts-/Klimabereich.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-89c1cb55-fe7b-4db3-b9fa-ae2f5607661e",
@@ -614,12 +614,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:29.164Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Konzeption und Evaluierung eines regionalen Lernraums zu Energiearmut, Regional-/Energiethema.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-08f565d7-a7ce-485c-9c0d-9ce3f5c64dc0",
@@ -686,12 +686,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:38.983Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Software-Lizenzen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-0c8d6009-78e7-4ae1-8972-84318d9769c0",
@@ -709,12 +709,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:54.168Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Jahresberichte zur Mission Klimaneutrale Stadt, Klima- und Stadtthema.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=009b7802-0b04-4fee-8dac-3922bd5098ae-KD_2378728",
@@ -731,12 +731,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:55.038Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Beschaffung von Gutscheinen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/notice-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-45cea924-cdf6-4c7e-89d8-1a4f9665f66d",
@@ -753,12 +753,12 @@
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:01:05.847Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Betrieb von bedarfsorientiertem ÖV, Verkehrsdienstleistung statt Konzept.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/668787-2026",
@@ -779,12 +779,12 @@
     "veroeffentlichungsdatum": "2026-09-29",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T10:59:43.005Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Überprüfung der Nationalen Verkehrsstrategie in Ungarn, Mobilitätskonzept/Studie.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=41a809d9-0b61-4991-86b8-74dc07973af3-9454c574-a8d2-4306-aa6f-8ec99d758039",
@@ -803,12 +803,12 @@
     "veroeffentlichungsdatum": "2026-09-29",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:30.031Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Wirtschaftsberatung zu Konzessionsvergabe für E-Laden auf Rastplätzen, Energie-/Mobilitätsbezug, Details fehlen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-7394c637-1dff-4ea8-b3c1-0efaf32dbff5",
@@ -825,12 +825,12 @@
     "veroeffentlichungsdatum": "2026-09-29",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:39.848Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Studie ohne erkennbares Thema, Beschreibung fehlt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/664567-2026",
@@ -847,12 +847,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:39.312Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Evaluation eines Projekts in Tschechien, Thema Gesundheitswesen eher fachfremd.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/666293-2026",
@@ -870,12 +870,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:43.005Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Generalentwässerungsplan für Jihlava (CZ), wasserwirtschaftliche Planung mit Stadtbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/666305-2026",
@@ -895,12 +895,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:43.005Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Objektplanung und Projektmanagement Gebäudesanierung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/666520-2026",
@@ -920,12 +920,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:43.005Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Projektentwicklung und -management Sanierung Wohnhausanlage.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/664140-2026",
@@ -943,12 +943,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T10:59:53.772Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Architekturwettbewerb für Verkehrsknoten in Ungarn, Mobilitätsbezug aber überwiegend Hochbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/664782-2026",
@@ -967,12 +967,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T11:00:05.888Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Bau von Fernwärmenetzen, Bauausführung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-cbf78785-d3d9-4ec7-831e-127f257501ad",
@@ -989,12 +989,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:30.899Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Evaluierung einer Verkehrssicherheitskampagne, Evaluation mit Mobilitätsbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-e3fc631b-e9ba-49d5-a285-323ff5eb1a8c",
@@ -1011,12 +1011,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:40.715Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Erreichbarkeit von Haltestellen im Radverkehrsnetz, Mobilitätskonzept/Studie.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=009b7802-0b04-4fee-8dac-3922bd5098ae-KD_2377266",
@@ -1033,12 +1033,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:41.581Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Software-Lizenzverlängerung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=505019f6-4c66-4ce4-9700-a5ed3cf664c3-51342c9b-181b-42b4-a53c-e698f02a7f65",
@@ -1055,12 +1055,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:55.918Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Streckenplanung Bahnhofsumbau, Schienenbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-145e1f40-5370-46de-88fb-1482d749b52a",
@@ -1078,12 +1078,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:56.786Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "IKT-Software für Flugverfahren.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-8bbd72de-18b1-42e4-9836-d1ec25f067ae",
@@ -1100,12 +1100,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:57.651Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Signaltechnik-Umbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-25b903e8-d5e5-4e95-ad1b-d15bab88bd06",
@@ -1122,12 +1122,12 @@
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:58.524Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Rechtsgutachten Luftfahrtrecht, fachfremd.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-d1adb9da-cffe-4ba5-9320-5abc5e8deb3d",
@@ -1199,12 +1199,12 @@
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:35.164Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Tourismus-Beratung zu Card-Systemen und digitalen Anwendungen, nur teilweise planungsnah.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/662199-2026",
@@ -1229,12 +1229,12 @@
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:41.211Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Projektdokumentation und Bauaufsicht für Galeriebau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-8e1ca935-89cc-4ad8-bdeb-669d8144c939",
@@ -1254,12 +1254,12 @@
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:14.318Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Tourismus-Beratung zu Card-Systemen und Besucherlenkung, Beschreibung fehlt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/658059-2026",
@@ -1278,12 +1278,12 @@
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T11:00:05.886Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Möbellieferung und -montage.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=009b7802-0b04-4fee-8dac-3922bd5098ae-KD_2375730",
@@ -1300,12 +1300,12 @@
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:44.185Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "IT-Hardware.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/654592-2026",
@@ -1322,12 +1322,12 @@
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:39.312Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Dynamisches Beschaffungssystem für ESF-Evaluationen in Tschechien, Evaluation aber thematisch offen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/654801-2026",
@@ -1345,12 +1345,12 @@
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Slowenien",
     "scrapedAt": "2026-10-05T10:59:43.005Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Studien zu Wasserressourcen für Bewässerung in Slowenien, Studienleistung mit fachlich anderem Schwerpunkt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/655935-2026",
@@ -1368,12 +1368,12 @@
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T11:00:05.885Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Beschaffung von Mikroskopen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-721dc125-7e98-4c57-bce4-a4ae2a37d55b",
@@ -1390,12 +1390,12 @@
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:45.050Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Software-Lizenzen und Support.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/651553-2026",
@@ -1412,12 +1412,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:39.312Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "IT-/ICT-Beratung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/653156-2026",
@@ -1435,12 +1435,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Slowenien",
     "scrapedAt": "2026-10-05T10:59:43.005Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Studien zu Wasserressourcen für Bewässerung in Slowenien, Studienleistung mit fachlich anderem Schwerpunkt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/650474-2026",
@@ -1463,12 +1463,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Slowakei",
     "scrapedAt": "2026-10-05T11:00:05.885Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Druckdienstleistungen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/650826-2026",
@@ -1486,12 +1486,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T11:00:05.885Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Naturräumliche Untersuchung von Mooren im Riesengebirge (CZ), Umweltbezug, aber Fachgutachten Botanik/Zoologie.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-768283c6-7603-47eb-804f-c895dca03aa1",
@@ -1510,12 +1510,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:31.764Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Evaluierung von Umweltförderungen, Evaluation im Umweltbereich.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-befc4032-b6ac-426c-a323-b4ae3053c0a0",
@@ -1534,12 +1534,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:32.631Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Wettbewerb Neue Arbeitswelten mit Architektur-CPV, Planungsbezug unklar.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-26750f82-a577-4a9b-afb4-bdbf6e85c37a",
@@ -1556,12 +1556,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:33.497Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Ex-Post-Evaluierung einer Bildungsinitiative, Evaluation aber fachfremdes Thema.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=505019f6-4c66-4ce4-9700-a5ed3cf664c3-1601ad71-fb50-47ca-9934-daf9df8c90bc",
@@ -1578,12 +1578,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:59.391Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "IT-Plattform.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-e886bcb4-b6c2-4f6f-92a5-936f45de61ed",
@@ -1602,12 +1602,12 @@
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:01:00.274Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Kreativagentur-/Werbeleistungen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/648977-2026",
@@ -1627,12 +1627,12 @@
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:32.129Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Allgemeine Consultingleistungen für FSW, nicht planungsbezogen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/647864-2026",
@@ -1652,12 +1652,12 @@
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:43.004Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Projektentwicklung und -management Sanierung Wohnhausanlage.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/646632-2026",
@@ -1674,12 +1674,12 @@
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:44.594Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Mediaagentur, Werbung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/649114-2026",
@@ -1696,12 +1696,12 @@
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:44.594Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Cybersicherheits-Manager, IT-Dienstleistung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/649900-2026",
@@ -1718,12 +1718,12 @@
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:44.594Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Mediaagentur, Werbung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/649789-2026",
@@ -1742,12 +1742,12 @@
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:53.772Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Generalplanung Ersatz- und Erweiterungsbau, Hochbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-7c8abd37-664f-4f74-aa52-32320dd7d3e1",
@@ -1767,12 +1767,12 @@
     "veroeffentlichungsdatum": "2026-09-20",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:15.182Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Generalplanung Hochbau, Beschreibung fehlt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-708150c4-7903-4cbb-922f-7066d8b5f2f7",
@@ -1814,12 +1814,12 @@
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:44.594Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Mediaagentur, Werbung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/644505-2026",
@@ -1855,12 +1855,12 @@
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T10:59:47.950Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Rekultivierung einer Industriehalde mit Bauausführung (HU).",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/643154-2026",
@@ -1885,12 +1885,12 @@
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Slowakei",
     "scrapedAt": "2026-10-05T11:00:05.885Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Ausstellungs-/Messeeinrichtung und Ausstattung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/646215-2026",
@@ -1907,12 +1907,12 @@
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:05.885Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Interreg ASTER Innovation-Sprint, Konzeption und Durchführung eines Workshop-Formats.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=fde58043-87ff-44b0-b6b0-3d089adfba4c-FN_193350p_BVergG-VIII-1-Z2_893858",
@@ -1929,12 +1929,12 @@
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:01:01.159Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Regiotaxi-Verkehrsbetrieb.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/642047-2026",
@@ -1952,12 +1952,12 @@
     "veroeffentlichungsdatum": "2026-09-17",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T11:00:05.885Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Naturräumliche Untersuchung von Mooren im Riesengebirge (CZ), Umweltbezug, aber Fachgutachten Botanik/Zoologie.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/638255-2026",
@@ -1974,12 +1974,12 @@
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T10:59:35.164Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Erstellung des Ortsplans für Győr (HU), Stadt-/Raumplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/639328-2026",
@@ -1996,12 +1996,12 @@
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:39.312Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Zulassungsunterlagen für Medizinprodukt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/636483-2026",
@@ -2019,12 +2019,12 @@
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:44.594Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Planungsbegleitender Dialog zur Trassenfindung Bahnstrecke, Beteiligung/Moderation.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/638472-2026",
@@ -2045,12 +2045,12 @@
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:44.594Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Marketing und Social Media.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-929c7044-acd6-4b40-83ec-c27d8488207e",
@@ -2068,12 +2068,12 @@
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:34.364Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Prüfungsunterstützung, fachfremd.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=fd56466b-ced8-47ab-8d1a-9ce798948bad-588",
@@ -2090,12 +2090,12 @@
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:46.787Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "IT-Betrieb und Weiterentwicklung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=009b7802-0b04-4fee-8dac-3922bd5098ae-KD_2372249",
@@ -2112,12 +2112,12 @@
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:01:02.033Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "IT-Servicevereinbarung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/633725-2026",
@@ -2140,12 +2140,12 @@
     "veroeffentlichungsdatum": "2026-09-15",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:43.004Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Projektplanung technische und Verkehrsinfrastruktur, Tiefbauplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/632286-2026",
@@ -2241,12 +2241,12 @@
     "veroeffentlichungsdatum": "2026-09-14",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T10:59:41.211Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Planung und Ausführung Marktsanierung, Hochbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/629713-2026",
@@ -2267,12 +2267,12 @@
     "veroeffentlichungsdatum": "2026-09-14",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:43.004Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Projektdokumentation und Autorenaufsicht, Hochbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/629789-2026",
@@ -2289,12 +2289,12 @@
     "veroeffentlichungsdatum": "2026-09-14",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:57.429Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Seismische Testvorbereitung, Bautechnik.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/630283-2026",
@@ -2311,12 +2311,12 @@
     "veroeffentlichungsdatum": "2026-09-14",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:01.861Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Vermessung und Leitungsdokumentation.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-a550a3fb-3d77-48c6-9615-e1be534a0425",
@@ -2336,12 +2336,12 @@
     "veroeffentlichungsdatum": "2026-09-13",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:16.049Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Konzeptverfahren für Bauplätze im Stadtentwicklungsgebiet, Planungsbezug aber Bauträger-Fokus.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=fde58043-87ff-44b0-b6b0-3d089adfba4c-FN_428285g_BVergG-VIII-1-Z2_232157",
@@ -2360,12 +2360,12 @@
     "veroeffentlichungsdatum": "2026-09-12",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:47.652Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Laborgerät, Lieferleistung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/626322-2026",
@@ -2412,12 +2412,12 @@
     "veroeffentlichungsdatum": "2026-09-11",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:43.004Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Rahmenvereinbarung Bauherrenunterstützung in Wien, Bau-/Projektmanagement mit Entwicklungsbezug.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/626323-2026",
@@ -2435,12 +2435,12 @@
     "veroeffentlichungsdatum": "2026-09-11",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:44.593Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Strategische ICT-Beratung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=009b7802-0b04-4fee-8dac-3922bd5098ae-KD_2370105",
@@ -2457,12 +2457,12 @@
     "veroeffentlichungsdatum": "2026-09-11",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:48.519Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Medientechnik-Steuerung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-b9b641c9-0a92-4863-a897-1628f72b2e8e",
@@ -2533,12 +2533,12 @@
     "veroeffentlichungsdatum": "2026-09-10",
     "organisationLand": "Slowakei",
     "scrapedAt": "2026-10-05T10:59:43.004Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Machbarkeitsstudie und Planung für Wartestellen an der Donau (Interreg FairWay Danube, SK), Wasserstraßen-Ingenieurleistung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/622974-2026",
@@ -2564,12 +2564,12 @@
     "veroeffentlichungsdatum": "2026-09-10",
     "organisationLand": "Ungarn",
     "scrapedAt": "2026-10-05T10:59:44.592Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Kommunikationsrahmenvereinbarung, Werbung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/623519-2026",
@@ -2586,12 +2586,12 @@
     "veroeffentlichungsdatum": "2026-09-10",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:44.592Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Cybersicherheits-Manager, IT-Dienstleistung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/624807-2026",
@@ -2676,12 +2676,12 @@
     "veroeffentlichungsdatum": "2026-09-09",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:44.592Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Strategische Beratung als Rahmenvereinbarung in Tschechien, Themenfeld unklar.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/622532-2026",
@@ -2700,12 +2700,12 @@
     "veroeffentlichungsdatum": "2026-09-09",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:53.771Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Konzept zur Revitalisierung eines öffentlichen Raums in Prag, Freiraum-/Stadtplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-7f147d9f-fcbf-439f-a7af-a4bba5b7f9d6",
@@ -2826,12 +2826,12 @@
     "veroeffentlichungsdatum": "2026-09-07",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:44.592Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Kreativagentur/Marketing.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/615301-2026",
@@ -2849,12 +2849,12 @@
     "veroeffentlichungsdatum": "2026-09-07",
     "organisationLand": "Tschechien",
     "scrapedAt": "2026-10-05T10:59:44.592Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Transaktions- und Strategieberatung, nicht planungsbezogen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/615954-2026",
@@ -2871,12 +2871,12 @@
     "veroeffentlichungsdatum": "2026-09-07",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:44.592Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Mediaagentur, Werbung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/614806-2026",
@@ -2919,12 +2919,12 @@
     "veroeffentlichungsdatum": "2026-09-06",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:18.930Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Örtliche Bauaufsicht Wohnbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-b4100536-b419-42ce-995f-a6521fa3ca61",
@@ -2945,12 +2945,12 @@
     "veroeffentlichungsdatum": "2026-09-06",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:00:19.800Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Örtliche Bauaufsicht Wohnbau.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/611422-2026",
@@ -2991,12 +2991,12 @@
     "veroeffentlichungsdatum": "2026-09-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T10:59:57.429Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Forschungsförderung Primärversorgung, Gesundheitswesen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/610364-2026",
@@ -3039,11 +3039,11 @@
     "veroeffentlichungsdatum": "2026-09-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T11:01:02.900Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Ausstellungsgestaltung, Kommunikation.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T11:02:54.141Z"
   }
 ]
