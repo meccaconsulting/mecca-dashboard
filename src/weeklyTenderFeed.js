@@ -261,6 +261,52 @@ function markRecordsUnreviewed(records) {
   }));
 }
 
+/**
+ * Uebernimmt vorhandene KI-Bewertungen aus dem bisherigen Datenstand fuer
+ * Ausschreibungen, die im neuen Feed wieder auftauchen (gleicher recordKey).
+ * Nur neue Ausschreibungen bleiben "ungeprueft". So geht eine Bewertung nicht
+ * verloren, wenn der Wochenfeed nach der Review-Routine laeuft.
+ */
+function carryOverReviews(records, previousRecords = []) {
+  const previousByKey = new Map();
+
+  for (const previous of previousRecords) {
+    const key = normalizeWhitespace(previous?.recordKey || previous?.link);
+    const label = normalizeWhitespace(previous?.reviewLabel).toLowerCase();
+
+    if (key && label && label !== "ungeprueft") {
+      previousByKey.set(key, previous);
+    }
+  }
+
+  return markRecordsUnreviewed(records).map((record) => {
+    const previous = previousByKey.get(record.recordKey);
+
+    if (!previous) {
+      return record;
+    }
+
+    return {
+      ...record,
+      reviewLabel: normalizeWhitespace(previous.reviewLabel).toLowerCase(),
+      reviewScore: Number.isFinite(Number(previous.reviewScore)) ? Number(previous.reviewScore) : null,
+      reviewReason: normalizeWhitespace(previous.reviewReason),
+      reviewProvider: normalizeWhitespace(previous.reviewProvider),
+      reviewModel: normalizeWhitespace(previous.reviewModel),
+      reviewedAt: normalizeWhitespace(previous.reviewedAt)
+    };
+  });
+}
+
+async function readPreviousRecords(jsonPath) {
+  try {
+    const parsed = JSON.parse(await fs.readFile(jsonPath, "utf8"));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
 function startOfTodayUtc() {
   const today = new Date();
   today.setUTCHours(0, 0, 0, 0);
@@ -1225,12 +1271,14 @@ async function main() {
     .filter((record, index, allRecords) => allRecords.findIndex((candidate) => candidate._recordKey === record._recordKey) === index);
   const activeRecords = filterExpiredRecords(records)
     .sort((a, b) => b.veroeffentlichungsdatum.localeCompare(a.veroeffentlichungsdatum));
-  const outputRecords = markRecordsUnreviewed(activeRecords);
+  const previousRecords = await readPreviousRecords(config.output.jsonPath);
+  const outputRecords = carryOverReviews(activeRecords, previousRecords);
 
   await writeOutputs(outputRecords, config.output);
 
   logger.info("Weekly Tender Feed abgeschlossen", {
     records: outputRecords.length,
+    reviewsCarriedOver: outputRecords.filter((record) => record.reviewLabel !== "ungeprueft").length,
     ted: tedRecords.length,
     usp: uspRecords.length,
     ankoeRegional: ankoeRecords.length,
@@ -1258,6 +1306,7 @@ module.exports = {
   extractUspDeadlineFromApiRow,
   extractUspDetailFromHtml,
   calculateCutoffDate,
+  carryOverReviews,
   buildTedCountryFilter,
   buildTedWeeklyQuery,
   countryLabel,

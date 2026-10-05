@@ -2,10 +2,11 @@ name: Update Ausschreibungen
 
 on:
   schedule:
-    # Sonntagnacht, 01:00 UTC (03:00 Wien) - ruhige Zeit, gibt der
-    # nachgelagerten KI-Review-Routine (Claude Code, So 05:00 UTC) genug
-    # Puffer, bevor am Montagmorgen aktuelle, geprueft Daten stehen sollen.
-    - cron: "0 1 * * 0"
+    # Samstag 18:00 UTC. GitHub startet geplante Workflows oft 4-6 h verspaetet;
+    # so ist der Feed sicher vor der KI-Review-Routine (Claude Code, So 05:00
+    # und 15:00 UTC) fertig. Bestehende Bewertungen werden per recordKey
+    # uebernommen, die Routine prueft nur neue Ausschreibungen.
+    - cron: "0 18 * * 6"
   workflow_dispatch:
 
 permissions:
