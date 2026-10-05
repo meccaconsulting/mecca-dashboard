@@ -893,8 +893,10 @@ async function scrapeAnkoeRegional(config, logger, cutoffDate) {
         }
       }
 
+      // Die ANKOE-Portale liefern nur wenige Dienstleistungsauftraege; ohne Stichwortzwang
+      // entscheidet die KI-Pruefung ueber die Relevanz (z.B. "Waerme- und Kaelteplan").
       const matchedSearchTerms = getAnkoeMatchedSearchTerms(row, detail, config);
-      if (!matchedSearchTerms.length) {
+      if (!matchedSearchTerms.length && config.ankoeRegional.requireSearchTermMatch !== false) {
         continue;
       }
 
@@ -1376,6 +1378,7 @@ module.exports = {
   calculateCutoffDate,
   carryOverReviews,
   dedupeSameTender,
+  scrapeAnkoeRegional,
   buildTedCountryFilter,
   buildTedSearchTerms,
   buildTedWeeklyQuery,

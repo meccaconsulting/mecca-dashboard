@@ -78,12 +78,12 @@
       "79311000-7",
       "90712000-6"
     ],
-    "url":"https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tenderlist",
+    "url": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tenderlist",
     "detailBaseUrl": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/"
   },
   "ankoeRegional": {
     "enabled": true,
-    "maxDetailsPerSource": 80,
+    "maxDetailsPerSource": 100,
     "sources": [
       {
         "portal": "BGLD",
@@ -105,8 +105,37 @@
         "contractTypeIds": [
           3
         ]
+      },
+      {
+        "portal": "KTN",
+        "baseUrl": "https://ktn.vergabeportal.at/",
+        "contractTypeIds": [
+          3
+        ]
+      },
+      {
+        "portal": "Tirol",
+        "baseUrl": "https://tirol.vergabeportal.at/",
+        "contractTypeIds": [
+          3
+        ]
+      },
+      {
+        "portal": "Vbg",
+        "baseUrl": "https://vorarlberg.vergabeportal.at/",
+        "contractTypeIds": [
+          3
+        ]
+      },
+      {
+        "portal": "ANKÖ",
+        "baseUrl": "https://gv.vergabeportal.at/",
+        "contractTypeIds": [
+          3
+        ]
       }
-    ]
+    ],
+    "requireSearchTermMatch": false
   },
   "noe": {
     "enabled": true,

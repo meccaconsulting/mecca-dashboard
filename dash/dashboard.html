@@ -3,416 +3,306 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ausschreibungen - mecca</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <title>Ausschreibungen · mecca</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f4f0e8;
-      --card: rgba(255,255,252,.92);
-      --card-solid: #fffef9;
-      --text: #3a3530;
-      --text-light: #8a7e6f;
-      --green: #5ba872;
-      --green-light: #e2f3e8;
-      --green-hover: #49915e;
-      --sepia: #c9b896;
-      --sepia-light: #e8dcc8;
-      --sepia-dark: #a89370;
-      --border: rgba(180,165,140,.35);
-      --shadow: 0 2px 12px rgba(60,50,30,.08);
+      --bg: #f4f1ea;
+      --surface: #fffdf8;
+      --surface-2: #f8f4ec;
+      --text: #2f2b26;
+      --muted: #7d7366;
+      --line: rgba(120, 104, 80, .18);
+      --brand: #3f8f5a;
+      --brand-strong: #2f7246;
+      --brand-soft: rgba(63, 143, 90, .12);
+      --sepia: #b59f78;
+      --good: #2f8a50;
+      --good-soft: rgba(47, 138, 80, .12);
+      --check: #a77a0c;
+      --check-soft: rgba(196, 150, 30, .14);
+      --bad: #b0443a;
+      --bad-soft: rgba(176, 68, 58, .1);
+      --unknown: #8a8072;
+      --unknown-soft: rgba(138, 128, 114, .14);
+      --shadow: 0 1px 2px rgba(40, 30, 10, .04), 0 6px 20px rgba(40, 30, 10, .06);
       --radius: 14px;
-      --urgent: #c0392b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161916;
+        --surface: #1f231f;
+        --surface-2: #262b26;
+        --text: #e9e6df;
+        --muted: #a39b8f;
+        --line: rgba(220, 210, 190, .12);
+        --brand: #6cc08a;
+        --brand-strong: #8ad3a3;
+        --brand-soft: rgba(108, 192, 138, .14);
+        --sepia: #c9b896;
+        --good: #6cc08a;
+        --good-soft: rgba(108, 192, 138, .14);
+        --check: #e0b84a;
+        --check-soft: rgba(224, 184, 74, .14);
+        --bad: #e07f74;
+        --bad-soft: rgba(224, 127, 116, .12);
+        --unknown: #a39b8f;
+        --unknown-soft: rgba(163, 155, 143, .14);
+        --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25);
+        --on-brand: #10241a;
+      }
     }
     html { font-size: 15px; }
     body {
       font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.5;
       background: var(--bg);
-      position: relative;
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Spezialkarte_4757_Wien.jpg/1280px-Spezialkarte_4757_Wien.jpg");
-      background-size: 120% 120%;
-      background-position: center;
-      background-repeat: no-repeat;
-      filter: sepia(.35) saturate(.5) brightness(1.15);
-      opacity: .12;
-      pointer-events: none;
-    }
-    body > * { position: relative; z-index: 1; }
+    a { color: inherit; }
 
+    /* Kopfzeile */
     .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 28px;
-      background: rgba(255,255,252,.7);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      gap: 14px;
-      flex-wrap: wrap;
+      gap: 16px;
+      padding: 12px 28px;
+      background: color-mix(in srgb, var(--surface) 82%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
-    .header-left { display: flex; align-items: center; gap: 18px; }
+    .header-left { display: flex; align-items: baseline; gap: 18px; min-width: 0; }
     .brand {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 300;
       letter-spacing: .4em;
-      color: var(--green);
-      padding-right: .4em;
-      position: relative;
+      color: var(--brand);
       text-decoration: none;
     }
-    .brand::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: .4em;
-      height: 2px;
-      background: linear-gradient(90deg, var(--green), var(--sepia), transparent);
-      border-radius: 1px;
-    }
-    .page-title {
-      font-size: .85rem;
-      color: var(--text-light);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .page-title strong { color: var(--text); font-weight: 600; }
+    .page-title { font-weight: 600; font-size: 1rem; }
+    .page-sub { color: var(--muted); font-size: .8rem; }
     .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 16px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      color: var(--text);
-      font-size: .82rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all .2s;
-    }
-    .back-btn:hover { border-color: var(--green); color: var(--green); }
-
-    .main { padding: 24px 28px; max-width: 1440px; margin: 0 auto; }
-    .kpi-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
-    .kpi {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 22px;
-      flex: 1 1 170px;
-      box-shadow: var(--shadow);
-    }
-    .kpi .label { font-size: .73rem; color: var(--text-light); text-transform: uppercase; letter-spacing: .06em; }
-    .kpi .value { font-size: 2rem; font-weight: 700; color: var(--green); margin-top: 4px; }
-    .kpi .value.urgent { color: var(--urgent); }
-    .kpi .sub { font-size: .75rem; color: var(--text-light); margin-top: 2px; }
-
-    .charts-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 18px; }
-    .chart-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      flex: 1 1 280px;
-      box-shadow: var(--shadow);
-    }
-    .chart-box.chart-compact { flex: 0 1 240px; }
-    .chart-box.chart-terms { flex: 1 1 360px; min-width: 320px; }
-    .chart-box h2 {
-      font-size: .88rem;
-      color: var(--green);
-      margin-bottom: 14px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .chart-box canvas { height: 132px !important; max-height: 132px; }
-    .term-summary { display: flex; flex-direction: column; gap: 6px; }
-    .term-row { display: grid; grid-template-columns: minmax(0, 1fr) 42px; gap: 10px; align-items: center; font-size: .76rem; }
-    .term-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); }
-    .term-count { text-align: right; color: var(--text-light); font-variant-numeric: tabular-nums; }
-    .term-bar { grid-column: 1 / -1; height: 3px; border-radius: 3px; background: var(--sepia-light); overflow: hidden; margin-top: -4px; }
-    .term-bar span { display: block; height: 100%; background: var(--green); border-radius: 3px; }
-
-    .advisor-card,
-    .admin-card,
-    .filter-bar,
-    .table-wrap {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .advisor-card {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      background: linear-gradient(135deg, rgba(91,168,114,.1), rgba(201,184,150,.08));
-      border-color: rgba(91,168,114,.22);
-      padding: 12px 15px;
-      margin-bottom: 16px;
-    }
-    .advisor-mini-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--green);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
       flex-shrink: 0;
-      box-shadow: 0 3px 10px rgba(91,168,114,.24);
+      padding: 7px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .8rem;
+      text-decoration: none;
+      background: var(--surface);
     }
-    .advisor-content { flex: 1; min-width: 0; }
-    .advisor-line { font-size: .83rem; color: var(--text); margin-bottom: 8px; }
-    .advisor-line strong { color: var(--green); }
-    .advisor-inline-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
-    .advisor-inline-pick {
-      background: var(--card-solid);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 10px;
-      min-width: 0;
-    }
-    .advisor-inline-pick.warn { border-color: rgba(192,57,43,.35); }
-    .advisor-inline-title { font-size: .76rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .advisor-inline-meta { margin-top: 3px; font-size: .7rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .back-btn:hover { border-color: var(--brand); color: var(--brand); }
 
-    .admin-card { padding: 14px 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; }
-    .admin-card[open] { padding-bottom: 14px; }
-    .admin-summary {
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
+    /* Raster: Inhalt + Seitenleiste */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 290px;
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 28px 40px;
+      align-items: start;
     }
-    .admin-summary::-webkit-details-marker { display: none; }
-    .admin-summary::after {
-      content: "\25BE";
-      font-size: .95rem;
-      color: var(--text-light);
-      transition: transform .15s ease;
-      margin-left: auto;
+    .sidebar { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 16px; }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    .admin-card[open] .admin-summary::after { transform: rotate(180deg); }
-    .admin-panel {
-      margin-top: 12px;
+
+    /* Kennzahlen */
+    .stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .stat { padding: 14px 16px; }
+    .stat-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .stat-value { font-size: 1.9rem; font-weight: 700; line-height: 1.2; margin-top: 2px; font-variant-numeric: tabular-nums; }
+    .stat-value.small { font-size: 1.05rem; padding-top: 9px; }
+    .stat-sub { font-size: .74rem; color: var(--muted); }
+    .stat.good .stat-value { color: var(--good); }
+    .stat.check .stat-value { color: var(--check); }
+    .stat.urgent .stat-value { color: var(--bad); }
+
+    /* Top-Empfehlungen */
+    .section-title {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 4px 0 10px;
+    }
+    .picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .pick {
+      padding: 14px 16px;
+      border-top: 3px solid var(--good);
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      border-top: 1px solid rgba(180,165,140,.2);
-      padding-top: 12px;
+      gap: 6px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease;
     }
-    .admin-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .admin-title { font-size: .9rem; color: var(--green); font-weight: 600; }
-    .admin-status { font-size: .78rem; color: var(--text-light); }
-    .admin-login, .admin-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-    .admin-login input,
-    .filter-bar select,
-    .filter-bar input {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-size: .82rem;
-      background: var(--card-solid);
-      color: var(--text);
-      outline: none;
-    }
-    .admin-note { font-size: .76rem; color: var(--text-light); }
-    .admin-note[data-tone="success"] { color: var(--green-hover); }
-    .admin-note[data-tone="warning"] { color: var(--urgent); }
-    .admin-btn,
-    .table-action,
-    .link-btn {
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all .15s;
-    }
-    .admin-btn,
-    .table-action {
-      border: 1px solid var(--green);
-      background: transparent;
-      color: var(--green);
-      padding: 8px 12px;
-      font-size: .8rem;
-      cursor: pointer;
-    }
-    .admin-btn:hover,
-    .table-action:hover {
-      background: var(--green);
-      color: #fff;
-    }
-    .admin-btn.secondary,
-    .table-action.secondary {
-      border-color: var(--sepia-dark);
-      color: var(--sepia-dark);
-    }
-    .admin-btn.secondary:hover,
-    .table-action.secondary:hover {
-      background: var(--sepia-dark);
-      color: #fff;
-    }
-    .toggle-option { display: flex; gap: 8px; align-items: center; font-size: .8rem; color: var(--text); }
+    .pick:hover { transform: translateY(-2px); }
+    .pick-title { font-weight: 600; font-size: .9rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .pick-meta { font-size: .76rem; color: var(--muted); }
+    .pick-reason { font-size: .78rem; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-    .filter-bar {
-      padding: 14px 18px;
-      margin-bottom: 16px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
+    /* Werkzeugleiste */
+    .toolbar { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; }
+    .toolbar-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .search {
+      flex: 1 1 240px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: .88rem;
     }
-    .filter-bar label { font-size: .8rem; color: var(--text-light); font-weight: 600; }
-    .review-filter-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      min-width: 100%;
-      padding-top: 4px;
-      border-top: 1px solid rgba(180,165,140,.2);
+    .search:focus, .select:focus { outline: 2px solid var(--brand-soft); border-color: var(--brand); }
+    .select {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: .82rem;
     }
-    .review-filter-label {
-      font-size: .8rem;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-    .review-filter-pills {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .review-pill {
-      border: 1px solid var(--border);
-      background: var(--card-solid);
+    .segmented { display: flex; gap: 6px; flex-wrap: wrap; }
+    .seg {
+      border: 1px solid var(--line);
+      background: var(--surface-2);
       color: var(--text);
       border-radius: 999px;
-      padding: 7px 12px;
-      font-size: .78rem;
+      padding: 6px 12px;
+      font-size: .8rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all .15s;
     }
-    .review-pill:hover {
-      border-color: var(--green);
-      color: var(--green);
-    }
-    .review-pill.is-active {
-      background: var(--green);
-      border-color: var(--green);
-      color: #fff;
-    }
-    .review-pill[data-value="eher unpassend"].is-active {
-      background: var(--urgent);
-      border-color: var(--urgent);
-    }
-    .review-pill[data-value="pruefen"].is-active {
-      background: #b18c16;
-      border-color: #b18c16;
-    }
-    .review-pill[data-value="ungeprueft"].is-active {
-      background: var(--sepia-dark);
-      border-color: var(--sepia-dark);
-    }
-    #result-count { margin-left: auto; font-size: .8rem; color: var(--text-light); }
+    .seg:hover { border-color: var(--brand); }
+    .seg.is-active { background: var(--brand); border-color: var(--brand); color: var(--on-brand, #fff); }
+    .seg .count { opacity: .7; font-weight: 500; margin-left: 3px; }
+    .result-count { margin-left: auto; font-size: .8rem; color: var(--muted); }
 
-    .table-wrap { overflow: auto; }
-    table { width: 100%; border-collapse: collapse; font-size: .83rem; }
-    thead th {
-      background: rgba(91,168,114,.15);
-      color: var(--green);
-      padding: 11px 13px;
-      text-align: left;
+    /* Ausschreibungskarten */
+    .list { display: flex; flex-direction: column; gap: 10px; }
+    .tender {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      padding: 14px 18px;
+      border-left: 4px solid var(--unknown);
+    }
+    .tender.tone-good { border-left-color: var(--good); }
+    .tender.tone-check { border-left-color: var(--check); }
+    .tender.tone-bad { border-left-color: var(--bad); }
+    .tender.tone-bad .tender-title { color: var(--muted); }
+    .chips { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 6px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 600;
+      background: var(--surface-2);
+      color: var(--muted);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .chip.good { background: var(--good-soft); color: var(--good); border-color: transparent; }
+    .chip.check { background: var(--check-soft); color: var(--check); border-color: transparent; }
+    .chip.bad { background: var(--bad-soft); color: var(--bad); border-color: transparent; }
+    .chip.unknown { background: var(--unknown-soft); color: var(--unknown); border-color: transparent; }
+    .chip.country { font-family: ui-monospace, Consolas, monospace; letter-spacing: .04em; }
+    .tender-date { font-size: .72rem; color: var(--muted); }
+    .tender-title { font-size: .98rem; font-weight: 600; line-height: 1.35; }
+    .tender-title a { text-decoration: none; }
+    .tender-title a:hover { color: var(--brand); text-decoration: underline; }
+    .tender-buyer { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+    .tender-reason {
+      margin-top: 8px;
+      font-size: .82rem;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--surface-2);
+    }
+    .tender-reason b { color: var(--muted); font-weight: 600; }
+    .tender details { margin-top: 6px; font-size: .78rem; color: var(--muted); }
+    .tender summary { cursor: pointer; user-select: none; }
+    .tender summary:hover { color: var(--brand); }
+    .tender details p { margin-top: 6px; white-space: pre-line; }
+    .tender-side { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 10px; min-width: 128px; }
+    .deadline { text-align: right; }
+    .deadline-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .deadline-value { font-size: .88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .deadline-value.soon { color: var(--bad); }
+    .deadline-value.none { color: var(--muted); font-weight: 400; }
+    .deadline-days { font-size: .72rem; color: var(--muted); }
+    .open-btn {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 10px;
+      background: var(--brand);
+      color: var(--on-brand, #fff);
+      text-decoration: none;
+      font-size: .8rem;
       font-weight: 600;
       white-space: nowrap;
-      cursor: pointer;
-      user-select: none;
-      border-bottom: 2px solid rgba(91,168,114,.25);
     }
-    thead th:hover { background: rgba(91,168,114,.25); }
-    tbody tr { border-bottom: 1px solid var(--border); }
-    tbody tr:hover { background: var(--green-light); }
-    tbody td { padding: 10px 13px; vertical-align: top; color: var(--text); }
-    .badge {
-      display: inline-block;
-      padding: 2px 9px;
-      border-radius: 12px;
-      font-size: .72rem;
-      font-weight: 600;
-    }
-    .badge-burgenland { background: var(--sepia-light); color: var(--sepia-dark); }
-    .badge-usp { background: rgba(91,168,114,.15); color: var(--green-hover); }
-    .badge-ted { background: rgba(74,120,190,.15); color: #355d9b; }
-    .badge-raumplanung { background: rgba(91,168,114,.2); color: var(--green-hover); }
-    .badge-regional { background: rgba(201,178,39,.15); color: #8a6e00; }
-    .badge-projekt { background: rgba(180,150,200,.2); color: #5a3a7a; }
-    .badge-cpv { background: rgba(74,120,190,.12); color: #355d9b; }
-    .badge-review-good { background: rgba(91,168,114,.18); color: var(--green-hover); }
-    .badge-review-check { background: rgba(201,178,39,.18); color: #8a6e00; }
-    .badge-review-bad { background: rgba(192,57,43,.12); color: var(--urgent); }
-    .badge-review-unknown { background: rgba(160,150,140,.15); color: var(--text-light); }
+    .open-btn:hover { background: var(--brand-strong); }
+    .empty { padding: 40px; text-align: center; color: var(--muted); }
 
-    .frist-soon { color: var(--urgent); font-weight: 600; }
-    .frist-ok { color: var(--green-hover); }
-    .no-frist { color: var(--text-light); font-style: italic; }
-
-    .link-btn {
-      display: inline-block;
-      padding: 4px 12px;
-      background: none;
-      border: 1px solid var(--green);
-      color: var(--green);
+    /* Seitenleiste */
+    .side-panel { padding: 16px; }
+    .side-title { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+    .side-note { font-size: .74rem; color: var(--muted); margin-bottom: 10px; }
+    .portal-links { display: flex; flex-direction: column; gap: 6px; }
+    .portal-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-2);
       text-decoration: none;
-      font-size: .75rem;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: border-color .15s, color .15s;
     }
-    .link-btn:hover { background: var(--green); color: #fff; }
-    .review-cell { min-width: 170px; max-width: 220px; }
-    .titel-cell { min-width: 280px; max-width: 340px; }
-    .ag-cell { max-width: 240px; color: var(--text-light); }
-    .description-snippet { margin-top: 4px; font-size: .74rem; color: var(--text-light); line-height: 1.35; }
-    .small-meta { margin-top: 3px; font-size: .72rem; color: var(--text-light); }
-    .review-meta { margin-top: 6px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-    .review-cell .review-meta { margin-top: 0; }
-    .review-reason { line-height: 1.35; }
-    .hidden-meta { color: var(--urgent); }
-    .cpv-list { max-width: 170px; font-size: .72rem; color: var(--text-light); word-break: break-word; }
-    .date-cell { white-space: nowrap; color: var(--text-light); }
-    .no-data { text-align: center; padding: 36px; color: var(--text-light); font-size: .9rem; }
-    .action-cell { white-space: nowrap; }
-    .action-hint { font-size: .72rem; color: var(--text-light); }
+    .portal-link small { font-weight: 400; color: var(--muted); font-size: .72rem; }
+    .portal-link:hover { border-color: var(--brand); color: var(--brand); }
+    .portal-link .arrow { color: var(--muted); font-size: .8rem; }
+    .portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .portal-grid .portal-link { padding: 7px 10px; }
+    .info-list { font-size: .78rem; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+    .info-list strong { color: var(--text); font-weight: 600; }
 
-    .footer { text-align: center; padding: 16px; font-size: .7rem; color: var(--text-light); letter-spacing: .05em; }
+    .footer { text-align: center; padding: 8px 0 28px; font-size: .72rem; color: var(--muted); letter-spacing: .05em; }
 
-    @media (max-width: 900px) {
-      .advisor-inline-picks { grid-template-columns: 1fr; }
-      .review-cell { min-width: 150px; max-width: 180px; }
-      .titel-cell { min-width: 240px; }
+    @media (max-width: 1100px) {
+      .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
-    @media (max-width: 700px) {
-      .main { padding: 14px 12px; }
-      .header { padding: 12px 16px; }
-      .filter-bar { align-items: stretch; }
-      #result-count { margin-left: 0; }
-      .review-cell { min-width: 140px; max-width: 160px; }
-      .titel-cell { min-width: 220px; }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .picks { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .header { padding: 10px 16px; }
+      .page-sub { display: none; }
+      .layout { padding: 16px 16px 32px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tender { grid-template-columns: 1fr; }
+      .tender-side { flex-direction: row; align-items: center; }
+      .deadline { text-align: left; }
+      .result-count { margin-left: 0; }
     }
   </style>
 </head>
@@ -420,102 +310,111 @@
   <header class="header">
     <div class="header-left">
       <a class="brand" href="../index.html">mecca</a>
-      <div class="page-title">&#128196; <strong>Ausschreibungen</strong> &nbsp;&middot;&nbsp; automatisch aktualisiert</div>
+      <div>
+        <div class="page-title">Ausschreibungen</div>
+        <div class="page-sub">Österreich &amp; Nachbarländer · wöchentlich aktualisiert · KI-geprüft</div>
+      </div>
     </div>
     <a class="back-btn" href="../index.html">&#8592; Dashboard</a>
   </header>
 
-  <div class="main">
-    <div class="kpi-row" id="kpi-row"></div>
+  <div class="layout">
+    <main>
+      <section class="stats" id="stats"></section>
 
-    <div class="charts-row">
-      <div class="chart-box chart-compact">
-        <h2>&#127760; Nach Portal</h2>
-        <canvas id="chartPortal"></canvas>
-      </div>
-      <div class="chart-box chart-terms">
-        <h2>&#128270; Nach Suchbegriff</h2>
-        <div id="termSummary" class="term-summary"></div>
-      </div>
-      <div class="chart-box chart-compact">
-        <h2>&#128197; Frist-Status</h2>
-        <canvas id="chartFrist"></canvas>
-      </div>
-    </div>
+      <section id="picks-section">
+        <h2 class="section-title">Top-Empfehlungen</h2>
+        <div class="picks" id="picks"></div>
+      </section>
 
-    <div class="advisor-card">
-      <div class="advisor-mini-avatar">S</div>
-      <div class="advisor-content">
-        <div class="advisor-line" id="advisor-summary"></div>
-        <div class="advisor-inline-picks" id="advisor-inline-picks"></div>
-      </div>
-    </div>
-
-    <div class="filter-bar">
-      <label>Portal</label>
-      <select id="f-portal">
-        <option value="">Alle</option>
-      </select>
-      <label>Suchbegriff</label>
-      <select id="f-such">
-        <option value="">Alle</option>
-      </select>
-      <label>Frist</label>
-      <select id="f-frist">
-        <option value="">Alle</option>
-        <option value="yes">Mit Frist</option>
-        <option value="soon">Frist &lt; 14 Tage</option>
-        <option value="no">Ohne Frist</option>
-      </select>
-      <label>KI</label>
-      <select id="f-review">
-        <option value="">Alle</option>
-        <option value="passt gut">Passt gut</option>
-        <option value="pruefen">Prüfen</option>
-        <option value="eher unpassend">Eher unpassend</option>
-        <option value="ungeprueft">Ungeprüft</option>
-      </select>
-      <label>Suche</label>
-      <input type="text" id="f-search" placeholder="Titel / Auftraggeber..." style="width:220px" />
-      <div class="review-filter-group">
-        <span class="review-filter-label">KI-Schnellfilter</span>
-        <div class="review-filter-pills" id="review-filter-pills">
-          <button type="button" class="review-pill is-active" data-value="">Alle</button>
-          <button type="button" class="review-pill" data-value="passt gut">Passt gut</button>
-          <button type="button" class="review-pill" data-value="pruefen">Prüfen</button>
-          <button type="button" class="review-pill" data-value="eher unpassend">Eher unpassend</button>
-          <button type="button" class="review-pill" data-value="ungeprueft">Ungeprüft</button>
+      <section class="panel toolbar">
+        <div class="toolbar-row">
+          <input type="search" id="f-search" class="search" placeholder="Suche in Titel, Auftraggeber, Beschreibung …" />
+          <select id="f-country" class="select" aria-label="Land"><option value="">Alle Länder</option></select>
+          <select id="f-portal" class="select" aria-label="Portal"><option value="">Alle Portale</option></select>
+          <select id="f-frist" class="select" aria-label="Frist">
+            <option value="">Jede Frist</option>
+            <option value="soon">Frist &lt; 14 Tage</option>
+            <option value="yes">Mit Frist</option>
+            <option value="no">Ohne Frist</option>
+          </select>
+          <select id="f-sort" class="select" aria-label="Sortierung">
+            <option value="review">Sortierung: KI-Einschätzung</option>
+            <option value="frist">Sortierung: Frist</option>
+            <option value="newest">Sortierung: Neueste</option>
+          </select>
         </div>
-      </div>
-      <span id="result-count"></span>
-    </div>
+        <div class="toolbar-row">
+          <div class="segmented" id="f-review"></div>
+          <span class="result-count" id="result-count"></span>
+        </div>
+      </section>
 
-    <div class="table-wrap">
-      <table id="main-table">
-        <thead>
-          <tr>
-            <th data-col="portal">Portal <span class="sort-icon">&#8597;</span></th>
-            <th data-col="suchbegriff">Suchbegriff <span class="sort-icon">&#8597;</span></th>
-            <th data-col="reviewLabel">KI <span class="sort-icon">&#8597;</span></th>
-            <th data-col="titel">Titel / Beschreibung <span class="sort-icon">&#8597;</span></th>
-            <th data-col="auftraggeber">Auftraggeber <span class="sort-icon">&#8597;</span></th>
-            <th data-col="veroeffentlichungsdatum">Veröffentlicht <span class="sort-icon">&#8597;</span></th>
-            <th data-col="frist">Frist <span class="sort-icon">&#8597;</span></th>
-            <th data-col="cpvCodes">CPV <span class="sort-icon">&#8597;</span></th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
-    </div>
+      <section class="list" id="list"></section>
+    </main>
+
+    <aside class="sidebar">
+      <section class="panel side-panel">
+        <h2 class="side-title">Portale im Feed</h2>
+        <p class="side-note">Diese Quellen werden jeden Samstag automatisch abgefragt.</p>
+        <div class="portal-links">
+          <a class="portal-link" href="https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tenderlist" target="_blank" rel="noopener">
+            <span>USP Ausschreibungen<br /><small>alle österr. Bekanntmachungen</small></span><span class="arrow">&#8599;</span>
+          </a>
+          <a class="portal-link" href="https://ted.europa.eu/de/" target="_blank" rel="noopener">
+            <span>TED<br /><small>EU-weite Ausschreibungen</small></span><span class="arrow">&#8599;</span>
+          </a>
+          <a class="portal-link" href="https://gv.vergabeportal.at/" target="_blank" rel="noopener">
+            <span>ANKÖ Vergabeportal<br /><small>Bund, Gemeinden, Unternehmen</small></span><span class="arrow">&#8599;</span>
+          </a>
+          <a class="portal-link" href="https://www.noe.gv.at/noe/Ausschreibungen-Liegenschaften/Bekanntmachungen.html" target="_blank" rel="noopener">
+            <span>Land Niederösterreich<br /><small>Bekanntmachungen</small></span><span class="arrow">&#8599;</span>
+          </a>
+        </div>
+        <h3 class="side-title" style="margin-top:14px">ANKÖ Länderportale</h3>
+        <div class="portal-grid">
+          <a class="portal-link" href="https://burgenland.vergabeportal.at/" target="_blank" rel="noopener">Burgenland</a>
+          <a class="portal-link" href="https://steiermark.vergabeportal.at/" target="_blank" rel="noopener">Steiermark</a>
+          <a class="portal-link" href="https://ooe.vergabeportal.at/" target="_blank" rel="noopener">Oberösterr.</a>
+          <a class="portal-link" href="https://ktn.vergabeportal.at/" target="_blank" rel="noopener">Kärnten</a>
+          <a class="portal-link" href="https://tirol.vergabeportal.at/" target="_blank" rel="noopener">Tirol</a>
+          <a class="portal-link" href="https://vorarlberg.vergabeportal.at/" target="_blank" rel="noopener">Vorarlberg</a>
+        </div>
+      </section>
+
+      <section class="panel side-panel">
+        <h2 class="side-title">Nachbarländer national</h2>
+        <p class="side-note">Unterschwellige Vergaben – nicht im Feed, zum manuellen Nachsehen.</p>
+        <div class="portal-grid">
+          <a class="portal-link" href="https://vvz.nipez.cz/" target="_blank" rel="noopener">CZ · VVZ</a>
+          <a class="portal-link" href="https://nen.nipez.cz/" target="_blank" rel="noopener">CZ · NEN</a>
+          <a class="portal-link" href="https://www.uvo.gov.sk/" target="_blank" rel="noopener">SK · ÚVO</a>
+          <a class="portal-link" href="https://ekr.gov.hu/portal/kozbeszerzesek" target="_blank" rel="noopener">HU · EKR</a>
+          <a class="portal-link" href="https://ejn.gov.si/" target="_blank" rel="noopener">SI · e-JN</a>
+          <a class="portal-link" href="https://www.enarocanje.si/" target="_blank" rel="noopener">SI · Portal JN</a>
+        </div>
+        <h3 class="side-title" style="margin-top:14px">Interreg-Programme</h3>
+        <div class="portal-grid">
+          <a class="portal-link" href="https://www.interreg-athu.eu/" target="_blank" rel="noopener">AT–HU</a>
+          <a class="portal-link" href="https://www.at-cz.eu/" target="_blank" rel="noopener">AT–CZ</a>
+          <a class="portal-link" href="https://www.sk-at.eu/" target="_blank" rel="noopener">SK–AT</a>
+        </div>
+      </section>
+
+      <section class="panel side-panel">
+        <h2 class="side-title">So entsteht die Liste</h2>
+        <div class="info-list">
+          <div><strong>Samstag:</strong> Feed holt Ausschreibungen der letzten 31 Tage aus AT, HU, SK, CZ, SI.</div>
+          <div><strong>Sonntag:</strong> Claude bewertet neue Einträge (passt gut / prüfen / eher unpassend).</div>
+          <div id="data-status"></div>
+        </div>
+      </section>
+    </aside>
   </div>
 
-  <div class="footer">mecca &middot; Raumplanung &middot; Ausschreibungen &middot; automatisch aktualisiert</div>
+  <div class="footer">mecca · Raumplanung · Ausschreibungen</div>
 
   <script src="data_embed.js"></script>
   <script src="dashboard.js"></script>
 </body>
 </html>
-
-
-
