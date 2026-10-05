@@ -50,6 +50,8 @@
         --unknown-soft: rgba(163, 155, 143, .14);
         --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25);
         --on-brand: #10241a;
+        --map-opacity: .07;
+        --map-filter: invert(1) sepia(.2) saturate(.4) brightness(.9);
       }
     }
     html { font-size: 15px; }
@@ -59,7 +61,24 @@
       color: var(--text);
       line-height: 1.5;
       min-height: 100vh;
+      position: relative;
     }
+    /* Historische Wien-Karte als dezenter Hintergrund */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Spezialkarte_4757_Wien.jpg/1280px-Spezialkarte_4757_Wien.jpg");
+      background-size: 120% 120%;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: var(--map-filter, sepia(.35) saturate(.5) brightness(1.15));
+      opacity: var(--map-opacity, .13);
+      pointer-events: none;
+    }
+    body > * { position: relative; z-index: 1; }
+    body > .header { position: sticky; z-index: 10; }
     a { color: inherit; }
 
     /* Kopfzeile */
@@ -100,17 +119,19 @@
     /* Raster: Inhalt + Seitenleiste */
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 290px;
+      grid-template-columns: minmax(0, 1fr) 260px;
       gap: 24px;
       max-width: 1400px;
       margin: 0 auto;
       padding: 24px 28px 40px;
       align-items: start;
     }
+    .layout > main { min-width: 0; }
     .sidebar { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 16px; }
 
     .panel {
-      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 93%, transparent);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -188,19 +209,7 @@
     .seg .count { opacity: .7; font-weight: 500; margin-left: 3px; }
     .result-count { margin-left: auto; font-size: .8rem; color: var(--muted); }
 
-    /* Ausschreibungskarten */
-    .list { display: flex; flex-direction: column; gap: 10px; }
-    .tender {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 16px;
-      padding: 14px 18px;
-      border-left: 4px solid var(--unknown);
-    }
-    .tender.tone-good { border-left-color: var(--good); }
-    .tender.tone-check { border-left-color: var(--check); }
-    .tender.tone-bad { border-left-color: var(--bad); }
-    .tender.tone-bad .tender-title { color: var(--muted); }
+    /* Chips */
     .chips { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 6px; }
     .chip {
       display: inline-flex;
@@ -219,42 +228,105 @@
     .chip.bad { background: var(--bad-soft); color: var(--bad); border-color: transparent; }
     .chip.unknown { background: var(--unknown-soft); color: var(--unknown); border-color: transparent; }
     .chip.country { font-family: ui-monospace, Consolas, monospace; letter-spacing: .04em; }
-    .tender-date { font-size: .72rem; color: var(--muted); }
-    .tender-title { font-size: .98rem; font-weight: 600; line-height: 1.35; }
-    .tender-title a { text-decoration: none; }
-    .tender-title a:hover { color: var(--brand); text-decoration: underline; }
-    .tender-buyer { font-size: .8rem; color: var(--muted); margin-top: 2px; }
-    .tender-reason {
-      margin-top: 8px;
-      font-size: .82rem;
-      padding: 6px 10px;
-      border-radius: 8px;
-      background: var(--surface-2);
+    /* Suchbegriffe: Farbe nach Themengruppe */
+    .chip.term { border-color: transparent; white-space: normal; line-height: 1.35; padding: 2px 8px; }
+    .term-planung { background: rgba(63, 143, 90, .16); color: #2f7246; }
+    .term-region { background: rgba(201, 160, 20, .18); color: #8a6a00; }
+    .term-studie { background: rgba(20, 140, 150, .14); color: #116c74; }
+    .term-mobil { background: rgba(214, 120, 40, .15); color: #a2541a; }
+    .term-klima { background: rgba(90, 160, 60, .16); color: #4a7a1f; }
+    .term-cpv { background: rgba(74, 120, 190, .14); color: #355d9b; }
+    .term-andere { background: rgba(140, 100, 180, .15); color: #5a3a7a; }
+    .term-allgemein { background: var(--unknown-soft); color: var(--unknown); }
+    /* Laender: eigene Farbe je Land */
+    .chip.country { border-color: transparent; }
+    .country-AT { background: rgba(200, 16, 46, .12); color: #b4232f; }
+    .country-CZ { background: rgba(17, 69, 126, .14); color: #1f4f8f; }
+    .country-SK { background: rgba(90, 60, 170, .14); color: #4b3a9a; }
+    .country-HU { background: rgba(60, 130, 70, .16); color: #2f6b3d; }
+    .country-SI { background: rgba(0, 130, 150, .14); color: #0f6d7d; }
+    @media (prefers-color-scheme: dark) {
+      .term-planung { color: #8ad3a3; } .term-region { color: #e6c55a; } .term-studie { color: #6fd0d8; }
+      .term-mobil { color: #f0a868; } .term-klima { color: #a8d878; } .term-cpv { color: #9bbcf0; }
+      .term-andere { color: #c9a8ea; }
+      .country-AT { color: #ff8f99; } .country-CZ { color: #9bbcf0; } .country-SK { color: #b9a6f2; }
+      .country-HU { color: #8fd49c; } .country-SI { color: #74d4e2; }
     }
-    .tender-reason b { color: var(--muted); font-weight: 600; }
-    .tender details { margin-top: 6px; font-size: .78rem; color: var(--muted); }
-    .tender summary { cursor: pointer; user-select: none; }
-    .tender summary:hover { color: var(--brand); }
-    .tender details p { margin-top: 6px; white-space: pre-line; }
-    .tender-side { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 10px; min-width: 128px; }
-    .deadline { text-align: right; }
-    .deadline-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
-    .deadline-value { font-size: .88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-    .deadline-value.soon { color: var(--bad); }
-    .deadline-value.none { color: var(--muted); font-weight: 400; }
-    .deadline-days { font-size: .72rem; color: var(--muted); }
+    .original { margin-top: 3px; font-size: .72rem; color: var(--muted); font-style: italic; }
+
+    /* Diagramme */
+    .charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .chart { padding: 16px 18px; display: flex; gap: 18px; align-items: center; }
+    .chart-title { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+    .donut { flex-shrink: 0; width: 132px; height: 132px; }
+    .donut circle { transition: stroke-width .15s; }
+    .donut-total { font-size: 22px; font-weight: 700; fill: var(--text); }
+    .donut-caption { font-size: 9px; fill: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+    .legend { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+    .legend-row { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 8px; align-items: center; font-size: .8rem; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+    .legend-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .legend-value { font-variant-numeric: tabular-nums; font-weight: 600; }
+    .legend-value small { color: var(--muted); font-weight: 400; margin-left: 4px; }
+
+    /* Ergebnistabelle */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    thead th {
+      text-align: left;
+      padding: 10px 9px;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--brand-strong);
+      background: var(--brand-soft);
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+    }
+    thead th:first-child { border-top-left-radius: var(--radius); }
+    thead th:last-child { border-top-right-radius: var(--radius); cursor: default; }
+    thead th:hover { color: var(--brand); }
+    thead th .sort { opacity: .45; margin-left: 3px; }
+    thead th.sorted .sort { opacity: 1; }
+    tbody tr { border-bottom: 1px solid var(--line); }
+    tbody tr:last-child { border-bottom: 0; }
+    tbody tr:hover { background: var(--brand-soft); }
+    tbody td { padding: 10px 9px; vertical-align: top; }
+    tbody td:first-child { box-shadow: inset 4px 0 0 var(--unknown); }
+    tr.tone-good td:first-child { box-shadow: inset 4px 0 0 var(--good); }
+    tr.tone-check td:first-child { box-shadow: inset 4px 0 0 var(--check); }
+    tr.tone-bad td:first-child { box-shadow: inset 4px 0 0 var(--bad); }
+    tr.tone-bad .cell-title strong { color: var(--muted); font-weight: 500; }
+    .cell-term { max-width: 120px; }
+    .cell-review { min-width: 140px; max-width: 190px; }
+    .cell-title { min-width: 230px; }
+    .cell-title strong { font-weight: 600; line-height: 1.35; }
+    .cell-buyer { min-width: 120px; max-width: 180px; color: var(--muted); }
+    .cell-cpv { max-width: 150px; font-size: .72rem; color: var(--muted); word-break: break-word; }
+    .cell-date { white-space: nowrap; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .cell-frist { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .snippet { margin-top: 4px; font-size: .75rem; color: var(--muted); line-height: 1.4; }
+    .reason { margin-top: 4px; font-size: .75rem; line-height: 1.4; }
+    .small-meta { margin-top: 2px; font-size: .72rem; color: var(--muted); }
+    .frist-soon { color: var(--bad); font-weight: 600; }
+    .frist-ok { color: var(--good); font-weight: 600; }
+    .frist-none { color: var(--muted); }
     .open-btn {
       display: inline-block;
-      padding: 7px 14px;
-      border-radius: 10px;
-      background: var(--brand);
-      color: var(--on-brand, #fff);
+      padding: 4px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--brand);
+      background: transparent;
+      color: var(--brand);
       text-decoration: none;
-      font-size: .8rem;
+      font-size: .75rem;
       font-weight: 600;
       white-space: nowrap;
+      transition: background .15s, color .15s;
     }
-    .open-btn:hover { background: var(--brand-strong); }
+    .open-btn:hover { background: var(--brand); color: var(--on-brand, #fff); }
     .empty { padding: 40px; text-align: center; color: var(--muted); }
 
     /* Seitenleiste */
@@ -293,15 +365,15 @@
       .layout { grid-template-columns: 1fr; }
       .sidebar { position: static; }
       .picks { grid-template-columns: 1fr; }
+      .charts { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .header { padding: 10px 16px; }
       .page-sub { display: none; }
       .layout { padding: 16px 16px 32px; }
       .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .tender { grid-template-columns: 1fr; }
-      .tender-side { flex-direction: row; align-items: center; }
-      .deadline { text-align: left; }
+      .chart { flex-direction: column; align-items: flex-start; }
+      .legend { width: 100%; }
       .result-count { margin-left: 0; }
     }
   </style>
@@ -322,6 +394,17 @@
     <main>
       <section class="stats" id="stats"></section>
 
+      <section class="charts">
+        <div class="panel chart">
+          <svg class="donut" id="chart-portal" viewBox="0 0 120 120" role="img" aria-label="Ausschreibungen nach Portal"></svg>
+          <div class="legend"><div class="chart-title">Nach Portal</div><div id="legend-portal"></div></div>
+        </div>
+        <div class="panel chart">
+          <svg class="donut" id="chart-frist" viewBox="0 0 120 120" role="img" aria-label="Frist-Status"></svg>
+          <div class="legend"><div class="chart-title">Frist-Status</div><div id="legend-frist"></div></div>
+        </div>
+      </section>
+
       <section id="picks-section">
         <h2 class="section-title">Top-Empfehlungen</h2>
         <div class="picks" id="picks"></div>
@@ -338,11 +421,6 @@
             <option value="yes">Mit Frist</option>
             <option value="no">Ohne Frist</option>
           </select>
-          <select id="f-sort" class="select" aria-label="Sortierung">
-            <option value="review">Sortierung: KI-Einschätzung</option>
-            <option value="frist">Sortierung: Frist</option>
-            <option value="newest">Sortierung: Neueste</option>
-          </select>
         </div>
         <div class="toolbar-row">
           <div class="segmented" id="f-review"></div>
@@ -350,7 +428,23 @@
         </div>
       </section>
 
-      <section class="list" id="list"></section>
+      <section class="panel table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-col="portal">Portal<span class="sort">&#8597;</span></th>
+              <th data-col="suchbegriff">Suchbegriff<span class="sort">&#8597;</span></th>
+              <th data-col="reviewLabel">KI<span class="sort">&#8597;</span></th>
+              <th data-col="displayTitle">Titel / Beschreibung<span class="sort">&#8597;</span></th>
+              <th data-col="auftraggeber">Auftraggeber<span class="sort">&#8597;</span></th>
+              <th data-col="veroeffentlichungsdatum">Veröff.<span class="sort">&#8597;</span></th>
+              <th data-col="frist">Frist<span class="sort">&#8597;</span></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </section>
     </main>
 
     <aside class="sidebar">

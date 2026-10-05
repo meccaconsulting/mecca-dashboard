@@ -23,6 +23,8 @@ const COUNTRY_CODES = {
 
 let dataRecords = [];
 let reviewFilter = "relevant";
+let sortCol = "reviewLabel";
+let sortDir = 1;
 
 function simpleHash(value) {
   const text = String(value || "");
@@ -129,7 +131,13 @@ function normalizeRecord(record) {
 
   // TED-Titel haben die Form "Land – CPV-Bezeichnung – eigentlicher Titel".
   const tedParts = normalized.portal === "TED" ? normalized.titel.split(" – ") : [];
-  normalized.displayTitle = tedParts.length >= 3 ? tedParts.slice(2).join(" – ") : normalized.titel;
+  const originalTitle = tedParts.length >= 3 ? tedParts.slice(2).join(" – ") : normalized.titel;
+  normalized.titelDe = String(normalized.titelDe || "").trim();
+  normalized.beschreibungDe = String(normalized.beschreibungDe || "").trim();
+  // Uebersetzungen der KI-Pruefung haben Vorrang; der Originaltitel bleibt als Hinweis sichtbar.
+  normalized.displayTitle = normalized.titelDe || originalTitle;
+  normalized.originalTitle = normalized.titelDe && normalized.titelDe !== originalTitle ? originalTitle : "";
+  normalized.displayDescription = normalized.beschreibungDe || String(normalized.beschreibung || "");
   normalized.category = tedParts.length >= 3 ? tedParts[1] : "";
   normalized.countryCode =
     COUNTRY_CODES[normalized.organisationLand] ||
@@ -182,26 +190,30 @@ function reviewText(label) {
   return { "passt gut": "Passt gut", pruefen: "Prüfen", "eher unpassend": "Eher unpassend" }[label] || "Ungeprüft";
 }
 
+const TERM_GROUPS = [
+  { className: "term-planung", terms: ["raumplanung", "stadtplanung", "stadtentwicklung", "landschaftsplanung", "umweltplanung"] },
+  { className: "term-region", terms: ["regionalentwicklung", "interreg", "smart village"] },
+  { className: "term-studie", terms: ["evaluierung", "evaluation", "studie", "machbarkeit", "forschung", "erhebungen", "sozialforschung"] },
+  { className: "term-mobil", terms: ["mobilität", "verkehr"] },
+  { className: "term-klima", terms: ["klimaschutz", "klima", "energie"] }
+];
+
+function termClass(term) {
+  const value = String(term || "").toLowerCase();
+  if (!value || value === "dienstleistungen") return "term-allgemein";
+  if (value.startsWith("cpv")) return "term-cpv";
+  const group = TERM_GROUPS.find((entry) => entry.terms.some((needle) => value.includes(needle)));
+  return group ? group.className : "term-andere";
+}
+
+function countryChip(record) {
+  if (!record.countryCode) return "";
+  return `<span class="chip country country-${escapeHtml(record.countryCode)}" title="${escapeHtml(record.organisationLand)}">${escapeHtml(record.countryCode)}</span>`;
+}
+
 function safeUrl(value) {
   const url = String(value || "");
   return /^https?:\/\//i.test(url) ? url : "";
-}
-
-function deadlineBlock(record) {
-  const days = fristDays(record.frist);
-
-  if (days === null) {
-    return '<div class="deadline"><div class="deadline-label">Frist</div><div class="deadline-value none">keine Angabe</div></div>';
-  }
-
-  const soon = days <= 14;
-  const daysText = days === 0 ? "heute" : days === 1 ? "morgen" : `in ${days} Tagen`;
-  return `
-    <div class="deadline">
-      <div class="deadline-label">Frist</div>
-      <div class="deadline-value${soon ? " soon" : ""}">${escapeHtml(formatDate(record.frist))}</div>
-      <div class="deadline-days">${daysText}</div>
-    </div>`;
 }
 
 function renderStats(records) {
@@ -252,7 +264,7 @@ function renderPicks(records) {
       const url = safeUrl(record.link);
       return `
         <a class="panel pick" href="${escapeHtml(url) || "#"}" target="_blank" rel="noopener">
-          <div class="chips"><span class="chip country">${escapeHtml(record.countryCode)}</span><span class="chip">${escapeHtml(record.portal)}</span></div>
+          <div class="chips">${countryChip(record)}<span class="chip">${escapeHtml(record.portal)}</span></div>
           <div class="pick-title">${escapeHtml(record.displayTitle)}</div>
           <div class="pick-meta">${escapeHtml(record.auftraggeber)} · ${escapeHtml(fristText)}</div>
           <div class="pick-reason">${escapeHtml(record.reviewReason)}</div>
@@ -301,8 +313,10 @@ function getFiltered(ignoreReview = false) {
     if (query) {
       const haystack = [
         record.titel,
+        record.titelDe,
         record.auftraggeber,
         record.beschreibung,
+        record.beschreibungDe,
         record.reviewReason,
         record.suchbegriff,
         record.cpvCodes.join(" ")
@@ -326,20 +340,102 @@ function compareFrist(left, right) {
 }
 
 function getSorted(records) {
-  const mode = document.getElementById("f-sort").value;
-
   return [...records].sort((left, right) => {
-    if (mode === "newest") {
-      return String(right.veroeffentlichungsdatum).localeCompare(String(left.veroeffentlichungsdatum));
+    if (sortCol === "frist") {
+      return compareFrist(left, right) * sortDir;
     }
 
-    if (mode === "frist") {
-      return compareFrist(left, right);
+    if (sortCol === "reviewLabel") {
+      const rankDiff = (REVIEW_RANK[left.reviewLabel] ?? 9) - (REVIEW_RANK[right.reviewLabel] ?? 9);
+      return rankDiff * sortDir || compareFrist(left, right);
     }
 
-    const rankDiff = (REVIEW_RANK[left.reviewLabel] ?? 9) - (REVIEW_RANK[right.reviewLabel] ?? 9);
-    return rankDiff || compareFrist(left, right);
+    const leftValue = Array.isArray(left[sortCol]) ? left[sortCol].join("; ") : String(left[sortCol] || "");
+    const rightValue = Array.isArray(right[sortCol]) ? right[sortCol].join("; ") : String(right[sortCol] || "");
+    return leftValue.localeCompare(rightValue, "de") * sortDir;
   });
+}
+
+// Ringdiagramm als SVG: segments = [{ label, value, color, note }]
+function renderDonut(svgId, legendId, segments, caption) {
+  const total = segments.reduce((sum, segment) => sum + segment.value, 0);
+  const radius = 46;
+  const circumference = 2 * Math.PI * radius;
+  const visibleSegments = segments.filter((segment) => segment.value > 0);
+  let offset = 0;
+
+  const arcs = visibleSegments
+    .map((segment) => {
+      const length = total ? (segment.value / total) * circumference : 0;
+      const visible = Math.max(length - (visibleSegments.length > 1 ? 1.6 : 0), 0.5);
+      const arc = `<circle cx="60" cy="60" r="${radius}" fill="none" stroke-width="14"
+        style="stroke:${segment.color}" stroke-dasharray="${visible} ${circumference - visible}"
+        stroke-dashoffset="${-offset}" transform="rotate(-90 60 60)"><title>${escapeHtml(segment.label)}: ${segment.value}</title></circle>`;
+      offset += length;
+      return arc;
+    })
+    .join("");
+
+  document.getElementById(svgId).innerHTML = `
+    <circle cx="60" cy="60" r="${radius}" fill="none" stroke-width="14" style="stroke:var(--line)"></circle>
+    ${arcs}
+    <text x="60" y="62" text-anchor="middle" class="donut-total">${total}</text>
+    <text x="60" y="76" text-anchor="middle" class="donut-caption">${escapeHtml(caption)}</text>`;
+
+  document.getElementById(legendId).innerHTML = segments
+    .map(
+      (segment) => `
+        <div class="legend-row">
+          <span class="legend-dot" style="background:${segment.color}"></span>
+          <span class="legend-label">${escapeHtml(segment.label)}</span>
+          <span class="legend-value">${segment.value}${segment.note ? `<small>${escapeHtml(segment.note)}</small>` : ""}</span>
+        </div>`
+    )
+    .join("");
+}
+
+function renderCharts(records) {
+  const groups = [
+    { label: "USP Bund", match: (portal) => portal === "USP Bund", color: "var(--brand)" },
+    { label: "TED (EU)", match: (portal) => portal === "TED", color: "#4a78be" },
+    { label: "ANKÖ Vergabeportal", match: (portal) => portal === "ANKÖ", color: "var(--sepia)" },
+    {
+      label: "ANKÖ Länderportale",
+      match: (portal) => ["BGLD", "STMK", "OÖ", "KTN", "Tirol", "Vbg", "Burgenland"].includes(portal),
+      color: "#8f6fb8"
+    },
+    { label: "Land NÖ", match: (portal) => portal === "NÖ", color: "#c98a3a" }
+  ];
+  const portalSegments = groups.map((group) => {
+    const matching = records.filter((record) => group.match(record.portal));
+    const relevant = matching.filter((record) => record.reviewLabel !== "eher unpassend").length;
+    return { label: group.label, value: matching.length, color: group.color, note: `${relevant} relevant` };
+  });
+  const other = records.filter((record) => !groups.some((group) => group.match(record.portal)));
+  if (other.length) {
+    portalSegments.push({ label: "Sonstige", value: other.length, color: "var(--muted)" });
+  }
+  renderDonut("chart-portal", "legend-portal", portalSegments.filter((segment) => segment.value > 0), "gesamt");
+
+  const buckets = { soon: 0, mid: 0, later: 0, none: 0 };
+  records.forEach((record) => {
+    const days = fristDays(record.frist);
+    if (days === null) buckets.none += 1;
+    else if (days <= 14) buckets.soon += 1;
+    else if (days <= 30) buckets.mid += 1;
+    else buckets.later += 1;
+  });
+  renderDonut(
+    "chart-frist",
+    "legend-frist",
+    [
+      { label: "Frist ≤ 14 Tage", value: buckets.soon, color: "var(--bad)" },
+      { label: "Frist 15–30 Tage", value: buckets.mid, color: "var(--check)" },
+      { label: "Frist > 30 Tage", value: buckets.later, color: "var(--good)" },
+      { label: "Keine Frist angegeben", value: buckets.none, color: "var(--unknown)" }
+    ],
+    "Ausschreibungen"
+  );
 }
 
 function renderReviewFilter() {
@@ -351,68 +447,82 @@ function renderReviewFilter() {
   }).join("");
 }
 
-function tenderCard(record) {
-  const tone = reviewTone(record.reviewLabel);
-  const url = safeUrl(record.link);
-  const titleHtml = url
-    ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(record.displayTitle)}</a>`
-    : escapeHtml(record.displayTitle);
-  const published = formatDate(record.veroeffentlichungsdatum);
-  const details = [];
-
-  if (record.beschreibung) {
-    details.push(`<p>${escapeHtml(record.beschreibung)}</p>`);
+function fristCell(record) {
+  const days = fristDays(record.frist);
+  if (days === null) {
+    return '<span class="frist-none">–</span>';
   }
-  if (record.category) {
-    details.push(`<p><b>Kategorie:</b> ${escapeHtml(record.category)}</p>`);
-  }
-  if (record.cpvCodes.length) {
-    details.push(`<p><b>CPV:</b> ${escapeHtml(record.cpvCodes.join(", "))}</p>`);
-  }
-  if (record.suchbegriff) {
-    details.push(`<p><b>Gefunden über:</b> ${escapeHtml(record.suchbegriff)}</p>`);
-  }
-
-  return `
-    <article class="panel tender tone-${tone}">
-      <div>
-        <div class="chips">
-          <span class="chip ${tone}">${escapeHtml(reviewText(record.reviewLabel))}</span>
-          ${record.countryCode ? `<span class="chip country" title="${escapeHtml(record.organisationLand)}">${escapeHtml(record.countryCode)}</span>` : ""}
-          <span class="chip">${escapeHtml(record.portal)}</span>
-          ${published ? `<span class="tender-date">veröffentlicht ${escapeHtml(published)}</span>` : ""}
-        </div>
-        <h3 class="tender-title">${titleHtml}</h3>
-        <div class="tender-buyer">${escapeHtml(record.auftraggeber)}</div>
-        ${record.reviewReason ? `<div class="tender-reason"><b>KI:</b> ${escapeHtml(prettifyGermanText(record.reviewReason))}</div>` : ""}
-        ${details.length ? `<details><summary>Details</summary>${details.join("")}</details>` : ""}
-      </div>
-      <div class="tender-side">
-        ${deadlineBlock(record)}
-        ${url ? `<a class="open-btn" href="${escapeHtml(url)}" target="_blank" rel="noopener">Öffnen &#8599;</a>` : ""}
-      </div>
-    </article>`;
+  const daysText = days === 0 ? "heute" : days === 1 ? "morgen" : `in ${days} Tagen`;
+  return `<span class="${days <= 14 ? "frist-soon" : "frist-ok"}">${escapeHtml(formatDate(record.frist))}</span><div class="small-meta">${daysText}</div>`;
 }
 
-function renderList() {
+function tableRow(record) {
+  const tone = reviewTone(record.reviewLabel);
+  const url = safeUrl(record.link);
+  const description = record.displayDescription.trim();
+  const snippet = description.length > 200 ? `${description.slice(0, 200)} …` : description;
+  const country = record.countryCode
+    ? `<div class="small-meta">${countryChip(record)} ${escapeHtml(record.organisationLand)}</div>`
+    : "";
+
+  return `
+    <tr class="tone-${tone}">
+      <td><span class="chip">${escapeHtml(record.portal)}</span></td>
+      <td class="cell-term"><span class="chip term ${termClass(record.suchbegriff)}">${escapeHtml(record.suchbegriff || "–")}</span></td>
+      <td class="cell-review">
+        <span class="chip ${tone}">${escapeHtml(reviewText(record.reviewLabel))}</span>
+        ${record.reviewReason ? `<div class="reason">${escapeHtml(prettifyGermanText(record.reviewReason))}</div>` : ""}
+      </td>
+      <td class="cell-title">
+        <strong>${escapeHtml(record.displayTitle)}</strong>
+        ${record.originalTitle ? `<div class="original" title="Originaltitel">${escapeHtml(record.originalTitle)}</div>` : ""}
+        ${record.category ? `<div class="small-meta">${escapeHtml(record.category)}</div>` : ""}
+        ${snippet ? `<div class="snippet">${escapeHtml(snippet)}</div>` : ""}
+        ${record.cpvCodes.length ? `<div class="small-meta">CPV ${escapeHtml(record.cpvCodes.slice(0, 4).join(", "))}${record.cpvCodes.length > 4 ? " …" : ""}</div>` : ""}
+      </td>
+      <td class="cell-buyer">${escapeHtml(record.auftraggeber)}${country}</td>
+      <td class="cell-date">${escapeHtml(formatDate(record.veroeffentlichungsdatum)) || "–"}</td>
+      <td class="cell-frist">${fristCell(record)}</td>
+      <td>${url ? `<a class="open-btn" href="${escapeHtml(url)}" target="_blank" rel="noopener">Öffnen</a>` : ""}</td>
+    </tr>`;
+}
+
+function renderTable() {
   const records = getSorted(getFiltered());
   renderReviewFilter();
   document.getElementById("result-count").textContent = `${records.length} Einträge`;
-  document.getElementById("list").innerHTML = records.length
-    ? records.map(tenderCard).join("")
-    : '<div class="panel empty">Keine Einträge für diese Filter.</div>';
+  document.getElementById("table-body").innerHTML = records.length
+    ? records.map(tableRow).join("")
+    : '<tr><td colspan="8" class="empty">Keine Einträge für diese Filter.</td></tr>';
+
+  document.querySelectorAll("thead th[data-col]").forEach((header) => {
+    const active = header.dataset.col === sortCol;
+    header.classList.toggle("sorted", active);
+    header.querySelector(".sort").textContent = active ? (sortDir === 1 ? "↑" : "↓") : "↕";
+  });
 }
 
 function registerEvents() {
-  ["f-country", "f-portal", "f-frist", "f-sort"].forEach((id) => {
-    document.getElementById(id).addEventListener("change", renderList);
+  ["f-country", "f-portal", "f-frist"].forEach((id) => {
+    document.getElementById(id).addEventListener("change", renderTable);
   });
-  document.getElementById("f-search").addEventListener("input", renderList);
+  document.getElementById("f-search").addEventListener("input", renderTable);
   document.getElementById("f-review").addEventListener("click", (event) => {
     const button = event.target.closest("button.seg");
     if (!button) return;
     reviewFilter = button.dataset.value;
-    renderList();
+    renderTable();
+  });
+  document.querySelectorAll("thead th[data-col]").forEach((header) => {
+    header.addEventListener("click", () => {
+      if (sortCol === header.dataset.col) {
+        sortDir *= -1;
+      } else {
+        sortCol = header.dataset.col;
+        sortDir = 1;
+      }
+      renderTable();
+    });
   });
 }
 
@@ -428,9 +538,10 @@ function main() {
 
   populateFilters(dataRecords);
   renderStats(dataRecords);
+  renderCharts(dataRecords);
   renderPicks(dataRecords);
   registerEvents();
-  renderList();
+  renderTable();
 }
 
 main();
