@@ -38,12 +38,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-05",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:00.711Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Z_2026_093_GP D-8380 Umbau Check-in -Insel 0, T3.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/257088",
@@ -61,12 +61,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-05",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:00.918Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Zertifizierte Fachkraft \"Buchhaltung und Personalverrechnung\".",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ooe.vergabeportal.at/Detail/256952",
@@ -83,12 +83,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:44.892Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Generalplaner + ÖBA.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ooe.vergabeportal.at/Detail/256922",
@@ -105,12 +105,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:45.274Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Sammlung Altpapier.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ooe.vergabeportal.at/Detail/256956",
@@ -127,12 +127,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:45.470Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Cyber Versicherung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/253486",
@@ -151,12 +151,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:01.896Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Entsorgung und Verwertung / Recycling Restfraktionen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256991",
@@ -173,12 +173,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:02.875Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Fernwärme-Konzession für Siedlungsgebiete hat Energie-/Siedlungsbezug, ist aber eher Versorgungs-Vergabe.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://vorarlberg.vergabeportal.at/Detail/256905",
@@ -195,12 +195,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-03",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:57.531Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Problemstoffentsorgung für die Gemeinden des Landes Vorarlberg ab 1. J.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256681",
@@ -217,12 +217,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-03",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:03.639Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Unterstützungsstruktur für Unternehmensgründung im Bundesland Oberöste.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/678971-2026",
@@ -393,12 +393,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:39.387Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Neubau Volksschule Hart bei Graz Generalplanerleistungen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256945",
@@ -415,12 +415,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:01.117Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Gutenbrunn Wiederkehrende Inspektion 2026.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/257011",
@@ -437,12 +437,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:01.320Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Abruf aus BBG-Rahmenvereinbarung \"Sicherheitsdienstleistungen\" BBG-GZ .",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/257025",
@@ -464,12 +464,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:01.516Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Finanzbuchhaltungssoftware (FiBU-Software).",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256937",
@@ -486,12 +486,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:02.259Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Planer Fördertechnik D-8380 Umbau Check-in-Insel 0, Terminal 3.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256002",
@@ -508,12 +508,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:03.436Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Wartungsvertrag für Flugzeugschlepper TMX-50-8 und TMX-150-18 für 2027.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256751",
@@ -530,12 +530,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-02",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:04.365Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Überbetriebliche Berufsausbildung nach BAG 30b in Kurz- und Langform i.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/677459-2026",
@@ -704,12 +704,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:04.727Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Social Media-Agentur.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256098",
@@ -727,12 +727,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:05.098Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Frauen in Handwerk und Technik - FiT Zentrum Wien.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256277",
@@ -749,12 +749,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-10-01",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:06.427Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): RVB Beduftung von Terminalflächen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/672262-2026",
@@ -1170,12 +1170,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:45.840Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Altpapiersammlung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256695",
@@ -1192,12 +1192,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:03.995Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): RVB Wartung und Eichung von Waagen und Wiegesysteme 60 Monate.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255054",
@@ -1214,12 +1214,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:05.863Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Wäscheversorgung WIGEV und HzL (Los 4).",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255341",
@@ -1240,12 +1240,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:06.056Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Softwarewartung, Softwaresupport und Beratung in Bezug auf \"GIMSO\".",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256485",
@@ -1266,12 +1266,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-30",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:07.349Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): ÜBA 2 und SÜBA 2 sowie SÜBA 1 - Handwerkliche u. technische Berufe in .",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/668787-2026",
@@ -1361,12 +1361,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-29",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:40.144Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Planungsleistungen Platzgestaltung mit Freiraumbezug, aber Pavillonbau und Generalplanung-Charakter.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ktn.vergabeportal.at/Detail/256556",
@@ -1383,12 +1383,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-29",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:50.145Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Projekt AutoGeri-Assist.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256007",
@@ -1413,12 +1413,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-29",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:05.488Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Digitale Stationsplattform.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256325",
@@ -1436,12 +1436,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-29",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:07.552Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): KreislaufWerkstatt Klagenfurt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/664567-2026",
@@ -1705,12 +1705,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-28",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:39.946Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Servicevertrag für Chlorine Tool.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-d1adb9da-cffe-4ba5-9320-5abc5e8deb3d",
@@ -1778,12 +1778,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-27",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:46.201Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Untersuchungen ALSAG Altstandorte Spittal an der Drau - Phase II - Pro.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ktn.vergabeportal.at/Detail/256351",
@@ -1804,12 +1804,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-27",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:50.536Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Bildungseinrichtungen - Mittagsverpflegung Stadtgemeinde Weiz (2026/27.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/662199-2026",
@@ -1883,12 +1883,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:36.079Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Planung/Förderabwicklung Heizwerk-Erweiterung mit Energiebezug, aber überwiegend technische Planung und Bauüberwachung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://steiermark.vergabeportal.at/Detail/255573",
@@ -1908,12 +1908,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:40.755Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Schulsozialarbeit des Landes Steiermark.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/253771",
@@ -1930,12 +1930,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:08.695Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): KFZ-Versicherung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256196",
@@ -1952,12 +1952,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:09.085Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Weltweite Lagerhaltung und Transporte von Wert- und Edelmetallen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256096",
@@ -1978,12 +1978,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:09.690Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): TSG: Entwicklung des Corporate Designs für die touristische Marke der .",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256005",
@@ -2004,12 +2004,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:09.931Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): ÜBA 2 und Sonderform der ÜBA 2 Dienstleistungsberufe in Oberwart.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256178",
@@ -2036,12 +2036,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:10.305Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): VERBUND - Implementierung u. Betrieb eines integrierten energiewirtsch.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256139",
@@ -2064,12 +2064,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:11.464Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Kooperation – Aus- und Fortbildungsservice für Ärztinnen und Ärzte in .",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/250711",
@@ -2090,12 +2090,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-25",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:12.974Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Wartung, Reparatur und Instandsetzung von Containern für das automatis.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/658059-2026",
@@ -2203,12 +2203,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:54.126Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Einreichprojekt für Moor-Renaturierung (Biodiversitätsfonds) ist Umwelt- und Landschaftsplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://tirol.vergabeportal.at/Detail/253632",
@@ -2228,12 +2228,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:54.944Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Suchtprävention Tirol.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256271",
@@ -2251,12 +2251,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:09.315Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Cateringleistungen - Winter Deaflympics 2027 in Innsbruck.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256087",
@@ -2273,12 +2273,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:11.686Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): E90094/14/3-Dion7/2026, 1130 Wien, Würzburggasse 8a, Militärpfarre St..",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256055",
@@ -2297,12 +2297,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-24",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:12.773Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Mobilfunkvertrag NEU - ÖIF.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/654592-2026",
@@ -2409,12 +2409,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:40.944Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Servicevertrag für Bosch Tool.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://tirol.vergabeportal.at/Detail/256121",
@@ -2431,12 +2431,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:54.503Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Direktvergabe der Stiegenhausreinigung in den Wohngebäuden Schillerstr.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256115",
@@ -2453,12 +2453,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:10.526Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): IT-Lerncenter (in Klagenfurt).",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/256137",
@@ -2475,12 +2475,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:10.724Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Digitalisierungscenter.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/253193",
@@ -2497,12 +2497,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:12.391Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Infrastrukturnahe Dienstleistungen 2026.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255762",
@@ -2519,12 +2519,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-23",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:13.337Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Abrufvertrag über Krananmietung 2027-2028 sowie optional 2029-2030.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/651553-2026",
@@ -2734,12 +2734,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:36.434Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Netzanalyse für Erzeugungsanlagen hat Energiebezug, ist aber netztechnisch statt raumplanerisch.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://steiermark.vergabeportal.at/Detail/255648",
@@ -2757,12 +2757,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:41.153Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Rahmenvereinbarung Wartung von Klavieren 2026-2030.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://steiermark.vergabeportal.at/Detail/255885",
@@ -2784,12 +2784,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:41.561Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Schulassistenz für die Marktgemeinde Premstätten und die Marktgemeinde.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255301",
@@ -2806,12 +2806,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-22",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:13.725Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Recruiting Leistungen zur Besetzung von definierten Dienstposten.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/648977-2026",
@@ -2942,12 +2942,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:41.343Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Integrierte Quartiersentwicklung (EFRE/JTF) in Voitsberg ist stadtplanerisches Kernthema.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ktn.vergabeportal.at/Detail/255921",
@@ -2964,12 +2964,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:50.721Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Installation Energiespeicher.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ktn.vergabeportal.at/Detail/255926",
@@ -2986,12 +2986,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:50.914Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Umsetzung der Anforderungen gemäß NISG 2026 (NIS2) beim WVO.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255834",
@@ -3008,12 +3008,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:14.118Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Personalbereitstellung Reinigung 2027- Sport- und Veranstaltungshalle .",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/249240",
@@ -3034,12 +3034,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-21",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:14.504Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Marketingleistungen für Lehrlingsprojekte und Jugendkommunikation für .",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-7c8abd37-664f-4f74-aa52-32320dd7d3e1",
@@ -3133,12 +3133,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-20",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:41.960Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Örtliche Bauaufsicht und BauKG für die Errichtung des Ärztezentrums de.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255718",
@@ -3155,12 +3155,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-19",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:15.145Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Stadttheater Baden-Sanierung Bühnentechnik-Projektsteuerung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/254841",
@@ -3178,12 +3178,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-19",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:15.345Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Allrisk Sachversicherung und technische Versicherung jeweils inklusive.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/644760-2026",
@@ -3359,12 +3359,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:41.751Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Servicevertrag für PECVD.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ooe.vergabeportal.at/Detail/255542",
@@ -3381,12 +3381,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:46.678Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Grüne Infrastruktur im Straßenraum hat Freiraumbezug, Umfang (Planung vs. Bau) unklar.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255125",
@@ -3404,12 +3404,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-18",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:16.108Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Verkauf RZ Weißer Hof (kein dem BVergG 2018 unterliegendes Verfahren).",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ooe.vergabeportal.at/Detail/255550",
@@ -3426,12 +3426,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-17",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:46.866Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Umweltmonitoring Wasser/Boden (Lysimeter) ist Umweltthema, aber eher Messung als Planung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/249251",
@@ -3448,12 +3448,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-17",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:14.949Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Cybersecurity 2027.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/253558",
@@ -3473,12 +3473,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-17",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:15.705Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "passt gut",
+    "reviewScore": 85,
+    "reviewReason": "Programmbetreuung klimaaktiv Gebäude (Klima/Energie) passt zu projektnaher Beratung im Klimabereich.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/638255-2026",
@@ -3629,12 +3629,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:51.100Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Gebäudereinigung öffentlicher WC Anlagen Stadt Villach 2027.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255547",
@@ -3651,12 +3651,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-16",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:15.910Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Zugang und Verwendungsrechte für Wissenschaftliche Literatur zu Umwelt.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/633725-2026",
@@ -3726,12 +3726,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-15",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:16.481Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Interner Botendienst Klinik Hietzing.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/255310",
@@ -3748,12 +3748,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-15",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:17.073Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Reinigungsdienstleistungen Wien III.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/254973",
@@ -3771,12 +3771,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-15",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:17.692Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Studien-/Berichtserstellung grundsätzlich passend, Thema Familienpolitik liegt jedoch abseits der Raumplanung.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/631114-2026",
@@ -3940,12 +3940,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-14",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:17.268Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Winterdienst Gemeinde Wolfsgraben.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tender-detail?object=a2c49245-23b2-46e1-acc7-c5a78913a090-a550a3fb-3d77-48c6-9615-e1be534a0425",
@@ -4014,12 +4014,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-12",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:18.063Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Rahmenvereinbarung Beleuchtung Red Bull Arena Salzburg.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/626323-2026",
@@ -4085,12 +4085,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-11",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:18.693Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Hochschule Campus Wien – Controlling-, Planungs- und Reporting-System.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/624766-2026",
@@ -4229,12 +4229,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-10",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:18.295Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Förderabwicklung ist projektnahe Beratung, Inhalt laut Beschreibung unklar.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/620217-2026",
@@ -4391,12 +4391,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-08",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:18.924Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): WIGEBA – 1220 Wien, Weidingergasse 2 – Betriebsführung Energiezentrale.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/254808",
@@ -4415,12 +4415,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-08",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:19.148Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Sammlung und Übergabe von Leicht-und Metallverpackungen sowie Glasverp.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/615291-2026",
@@ -4639,12 +4639,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-06",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:36.847Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): VBB Busverkehrsdienste Verlängerung der Überbrückungsphase im Südburge.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://vorarlberg.vergabeportal.at/Detail/252908",
@@ -4662,12 +4662,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-06",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:38:57.922Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Winterdienstleistungen in der Gemeinde St. Gallenkirch.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://gv.vergabeportal.at/Detail/254733",
@@ -4685,12 +4685,12 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-06",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:19.599Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "pruefen",
+    "reviewScore": 55,
+    "reviewReason": "Beratungsleistungen sind grundsätzlich passend, Thema digitale Transformation aber fachfremd.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   },
   {
     "recordKey": "https://ted.europa.eu/de/notice/-/detail/611422-2026",
@@ -4802,11 +4802,11 @@ const DATA = [
     "veroeffentlichungsdatum": "2026-09-04",
     "organisationLand": "Österreich",
     "scrapedAt": "2026-10-05T12:39:20.056Z",
-    "reviewLabel": "ungeprueft",
-    "reviewScore": null,
-    "reviewReason": "",
-    "reviewProvider": "",
-    "reviewModel": "",
-    "reviewedAt": ""
+    "reviewLabel": "eher unpassend",
+    "reviewScore": 20,
+    "reviewReason": "Fachfremde Leistung (kein Raumplanungs-/Umweltbezug): Werbeagentur inkl. Grafikleistungen.",
+    "reviewProvider": "claude-automation",
+    "reviewModel": "claude-sonnet-5-5",
+    "reviewedAt": "2026-10-05T12:40:34.590Z"
   }
 ];
