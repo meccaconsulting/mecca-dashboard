@@ -1165,7 +1165,14 @@ async function scrapeUsp(config, logger, cutoffDate) {
       let rows = [];
 
       try {
-        const payload = await fetchUspJson(apiUrl, config);
+        let payload;
+        try {
+          payload = await fetchUspJson(apiUrl, config);
+        } catch {
+          // USP drosselt gelegentlich mit 403; nach einer Pause einmal neu versuchen.
+          await sleep(config.runtime.uspRetryDelayMs ?? 15000);
+          payload = await fetchUspJson(apiUrl, config);
+        }
         rows = Array.isArray(payload.data) ? payload.data : [];
       } catch (error) {
         logger.warn("USP Suche übersprungen", { searchTerm, message: getErrorMessage(error) });
