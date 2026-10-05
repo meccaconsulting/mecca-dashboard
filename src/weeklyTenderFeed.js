@@ -27,7 +27,9 @@ const CSV_HEADERS = [
   "reviewReason",
   "reviewProvider",
   "reviewModel",
-  "reviewedAt"
+  "reviewedAt",
+  "titelDe",
+  "beschreibungDe"
 ];
 
 const COUNTRY_NAMES = {
@@ -230,7 +232,10 @@ function normalizeFeedRecord(record) {
     reviewReason: normalizeWhitespace(record.reviewReason),
     reviewProvider: normalizeWhitespace(record.reviewProvider),
     reviewModel: normalizeWhitespace(record.reviewModel),
-    reviewedAt: normalizeWhitespace(record.reviewedAt)
+    reviewedAt: normalizeWhitespace(record.reviewedAt),
+    // Deutsche Uebersetzung nicht-deutscher Inhalte, ergaenzt durch die KI-Pruefung.
+    titelDe: normalizeWhitespace(record.titelDe),
+    beschreibungDe: normalizeWhitespace(record.beschreibungDe)
   };
 
   normalized._recordKey =
@@ -293,7 +298,9 @@ function carryOverReviews(records, previousRecords = []) {
       reviewReason: normalizeWhitespace(previous.reviewReason),
       reviewProvider: normalizeWhitespace(previous.reviewProvider),
       reviewModel: normalizeWhitespace(previous.reviewModel),
-      reviewedAt: normalizeWhitespace(previous.reviewedAt)
+      reviewedAt: normalizeWhitespace(previous.reviewedAt),
+      titelDe: normalizeWhitespace(previous.titelDe),
+      beschreibungDe: normalizeWhitespace(previous.beschreibungDe)
     };
   });
 }

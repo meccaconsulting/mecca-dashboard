@@ -481,13 +481,17 @@ test("Wochenfeed uebernimmt vorhandene Bewertungen per recordKey, neue bleiben u
         reviewReason: "Regionalentwicklungskonzept.",
         reviewProvider: "claude-automation",
         reviewModel: "claude-sonnet-5",
-        reviewedAt: "2026-09-27T05:21:45.000Z"
+        reviewedAt: "2026-09-27T05:21:45.000Z",
+        titelDe: "Studie zur Ortskernentwicklung",
+        beschreibungDe: "Deutsche Uebersetzung."
       },
       { recordKey: "https://example.org/c", reviewLabel: "eher unpassend", reviewScore: 20 }
     ]
   );
 
   assert.equal(records.length, 2);
+  assert.equal(records[0].titelDe, "Studie zur Ortskernentwicklung");
+  assert.equal(records[0].beschreibungDe, "Deutsche Uebersetzung.");
   assert.equal(records[0].reviewLabel, "passt gut");
   assert.equal(records[0].reviewScore, 85);
   assert.equal(records[0].reviewReason, "Regionalentwicklungskonzept.");
