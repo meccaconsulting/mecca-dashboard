@@ -10,10 +10,12 @@ const {
   ankoeRecordMatchesContractType,
   buildTedCountryFilter,
   buildTedSearchTerms,
+  buildUspSearches,
   buildTedWeeklyQuery,
   buildUspDetailUrl,
   carryOverReviews,
   countryLabel,
+  dedupeSameTender,
   extractAnkoeCpvCodes,
   extractAnkoeXsrfToken,
   extractNoeRecordsFromHtml,
@@ -52,6 +54,39 @@ test("formatCpvSearchTerm ergänzt lesbare CPV-Kurzlabels", () => {
     formatCpvSearchTerm("714100005", { "71410000-5": "Raumplanung" }),
     "CPV 71410000-5 - Raumplanung"
   );
+});
+
+test("dedupeSameTender fasst TED/USP-Doppelungen und TED-Berichtigungen zusammen", () => {
+  const records = [
+    { portal: "TED", titel: "Österreich – Planungsleistungen – Mitte 15 / Westbahnhof Leitbild", link: "t1", veroeffentlichungsdatum: "2026-10-01" },
+    { portal: "USP Bund", titel: "Mitte 15 / Westbahnhof Leitbild", link: "u1", veroeffentlichungsdatum: "2026-09-30" },
+    { portal: "TED", titel: "Tschechien – Evaluierung – Dopadová studie pro záměr SPP", link: "t2", veroeffentlichungsdatum: "2026-09-01" },
+    { portal: "TED", titel: "Tschechien – Evaluierung – Dopadová studie pro záměr SPP", link: "t3", veroeffentlichungsdatum: "2026-09-20" },
+    { portal: "USP Bund", titel: "Studie", link: "u2", veroeffentlichungsdatum: "2026-09-20" },
+    { portal: "USP Bund", titel: "Studie", link: "u3", veroeffentlichungsdatum: "2026-09-21" }
+  ];
+  assert.deepEqual(dedupeSameTender(records).map((record) => record.link), ["u1", "t3", "u2", "u3"]);
+});
+
+test("USP sucht nach Stichworten und zusaetzlich per CPV-Filter", () => {
+  const searches = buildUspSearches({
+    searchTerms: ["Studie"],
+    usp: { cpvCodes: ["79419000-4"] },
+    cpvLabels: { "79419000-4": "Evaluation" }
+  });
+  assert.deepEqual(searches, [
+    { searchTerm: "Studie", query: "Studie", cpvCode: "" },
+    { searchTerm: "CPV 79419000-4 - Evaluation", query: "", cpvCode: "79419000" }
+  ]);
+
+  const url = getUspApiUrl(
+    { usp: { url: "https://example.test/x/public/tenderlist" } },
+    "",
+    0,
+    100,
+    "79419000"
+  );
+  assert.equal(url.searchParams.get("cpvList"), "79419000");
 });
 
 test("TED nutzt eigene Stichwortliste, falls konfiguriert", () => {

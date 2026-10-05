@@ -298,6 +298,39 @@ function carryOverReviews(records, previousRecords = []) {
   });
 }
 
+// Dieselbe Ausschreibung erscheint oft mehrfach: oberschwellig auf TED und USP, bei TED
+// zusaetzlich als Berichtigung/Aenderung. Behalten wird ein Eintrag pro Titel, bevorzugt
+// USP (verlinkt direkt aufs Vergabeportal), sonst die neueste Veroeffentlichung.
+const DEDUPE_PORTAL_PRIORITY = { "USP Bund": 0, TED: 2 };
+
+function dedupeTitleKey(record) {
+  const title = record.portal === "TED"
+    ? String(record.titel || "").replace(/^[^–]+–[^–]+–\s*/, "")
+    : String(record.titel || "");
+  const key = normalizeSearchValue(title).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  // Kurze, generische Titel ("Studie") nicht zusammenfassen.
+  return key.length >= 15 ? key : `link:${record.link}`;
+}
+
+function dedupeSameTender(records) {
+  const priority = (record) => DEDUPE_PORTAL_PRIORITY[record.portal] ?? 1;
+  const byKey = new Map();
+  for (const record of records) {
+    const key = dedupeTitleKey(record);
+    const current = byKey.get(key);
+    if (
+      !current ||
+      priority(record) < priority(current) ||
+      (priority(record) === priority(current) &&
+        String(record.veroeffentlichungsdatum).localeCompare(String(current.veroeffentlichungsdatum)) > 0)
+    ) {
+      byKey.set(key, record);
+    }
+  }
+  const kept = new Set(byKey.values());
+  return records.filter((record) => kept.has(record));
+}
+
 async function readPreviousRecords(jsonPath) {
   try {
     const parsed = JSON.parse(await fs.readFile(jsonPath, "utf8"));
@@ -406,12 +439,30 @@ function tedNoticeMatchesAllowedCountries(notice, allowedBuyerCountries = []) {
   return noticeCountries.some((country) => allowed.has(country));
 }
 
-function getUspApiUrl(config, searchTerm, start = 0, length = USP_DEFAULT_PAGE_SIZE) {
+// USP kann neben Stichworten auch nach CPV-Code filtern (Parameter cpvList).
+function buildUspSearches(config) {
+  const keywordSearches = toArray(config.searchTerms).map((term) => ({
+    searchTerm: term,
+    query: term,
+    cpvCode: ""
+  }));
+  const cpvSearches = toArray(config.usp?.cpvCodes).map((code) => ({
+    searchTerm: formatCpvSearchTerm(code, config.cpvLabels || {}),
+    query: "",
+    cpvCode: normalizeCpvCode(code).replace(/-\d$/, "")
+  }));
+  return [...keywordSearches, ...cpvSearches];
+}
+
+function getUspApiUrl(config, searchTerm, start = 0, length = USP_DEFAULT_PAGE_SIZE, cpvCode = "") {
   const apiBaseUrl =
     normalizeWhitespace(config.usp.apiUrl) ||
     String(config.usp.url || "").replace("/public/tenderlist", "/public/api/tenderlist");
   const url = new URL(apiBaseUrl);
   url.searchParams.set("q", searchTerm);
+  if (cpvCode) {
+    url.searchParams.set("cpvList", cpvCode);
+  }
   url.searchParams.set("start", String(start));
   url.searchParams.set("length", String(length));
   return url;
@@ -1105,15 +1156,12 @@ async function scrapeUsp(config, logger, cutoffDate) {
   let detailCount = 0;
   const pageSize = config.usp.pageSize || USP_DEFAULT_PAGE_SIZE;
 
-  for (const searchTerm of config.searchTerms) {
-    logger.info("Weekly USP Suche", {
-      searchTerm,
-      searchUrl: `${config.usp.url}?q=${encodeURIComponent(searchTerm)}&loaded=true`
-    });
+  for (const { searchTerm, query, cpvCode } of buildUspSearches(config)) {
+    logger.info("Weekly USP Suche", { searchTerm });
 
     for (let pageNumber = 0; pageNumber < config.runtime.maxPagesPerSearch; pageNumber += 1) {
       const start = pageNumber * pageSize;
-      const apiUrl = getUspApiUrl(config, searchTerm, start, pageSize);
+      const apiUrl = getUspApiUrl(config, query, start, pageSize, cpvCode);
       let rows = [];
 
       try {
@@ -1282,7 +1330,7 @@ async function main() {
   const records = [...tedRecords, ...uspRecords, ...ankoeRecords, ...noeRecords]
     .map((record) => normalizeFeedRecord(record))
     .filter((record, index, allRecords) => allRecords.findIndex((candidate) => candidate._recordKey === record._recordKey) === index);
-  const activeRecords = filterExpiredRecords(records)
+  const activeRecords = dedupeSameTender(filterExpiredRecords(records))
     .sort((a, b) => b.veroeffentlichungsdatum.localeCompare(a.veroeffentlichungsdatum));
   const previousRecords = await readPreviousRecords(config.output.jsonPath);
   const outputRecords = carryOverReviews(activeRecords, previousRecords);
@@ -1320,9 +1368,11 @@ module.exports = {
   extractUspDetailFromHtml,
   calculateCutoffDate,
   carryOverReviews,
+  dedupeSameTender,
   buildTedCountryFilter,
   buildTedSearchTerms,
   buildTedWeeklyQuery,
+  buildUspSearches,
   countryLabel,
   formatCpvSearchTerm,
   getUspApiUrl,

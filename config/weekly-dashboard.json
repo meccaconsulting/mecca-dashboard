@@ -65,7 +65,20 @@
     ]
   },
   "usp": {
-    "url": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tenderlist",
+    "cpvCodes": [
+      "71410000-5",
+      "71400000-2",
+      "71420000-8",
+      "79419000-4",
+      "79314000-8",
+      "73000000-2",
+      "73200000-4",
+      "79410000-1",
+      "79315000-5",
+      "79311000-7",
+      "90712000-6"
+    ],
+    "url":"https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/tenderlist",
     "detailBaseUrl": "https://ausschreibungen.usp.gv.at/at.gv.bmdw.eproc-p/public/"
   },
   "ankoeRegional": {
