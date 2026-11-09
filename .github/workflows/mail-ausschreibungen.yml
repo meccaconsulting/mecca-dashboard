@@ -1,0 +1,57 @@
+name: Mail Ausschreibungen
+
+# Sendet nach der Claude-Bewertung (Sonntag, Commit "Review Ausschreibungen mit Claude")
+# eine Mail mit den neu als "passt gut"/"pruefen" bewerteten Ausschreibungen.
+# Der Samstags-Commit des Feeds (GITHUB_TOKEN) loest diesen Workflow bewusst nicht aus.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - dash/data.json
+  workflow_dispatch:
+    inputs:
+      since_days:
+        description: "Manueller Lauf: Treffer, die in den letzten n Tagen bewertet wurden"
+        default: "7"
+      dry_run:
+        description: "true = nur Vorschau, keine Mail"
+        default: "false"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mail-ausschreibungen
+  cancel-in-progress: false
+
+jobs:
+  mail:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mail erzeugen und senden
+        env:
+          MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
+          MAIL_PORT: ${{ secrets.MAIL_PORT }}
+          MAIL_USER: ${{ secrets.MAIL_USER }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          MAIL_TO: ${{ vars.MAIL_TO }}
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          SINCE_DAYS: ${{ github.event.inputs.since_days }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "$EVENT" = "push" ]; then
+            git show "$BEFORE:dash/data.json" > "$RUNNER_TEMP/data_before.json"
+            ARGS="--before-file $RUNNER_TEMP/data_before.json --skip-if-empty"
+          else
+            ARGS="--since-days ${SINCE_DAYS:-7}"
+            if [ "$DRY_RUN" = "true" ]; then ARGS="$ARGS --dry-run --out-dir $RUNNER_TEMP/mail_preview"; fi
+          fi
+          python3 scripts/send_weekly_mail.py $ARGS
+          if [ "$DRY_RUN" = "true" ]; then cat "$RUNNER_TEMP/mail_preview/mail.txt"; fi
