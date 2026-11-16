@@ -28,7 +28,7 @@ from datetime import date, datetime, timedelta, timezone
 from email.message import EmailMessage
 from pathlib import Path
 
-DASHBOARD_URL = "https://meccaconsulting.github.io/mecca-dashboard/"
+DASHBOARD_URL = "https://meccaconsulting.github.io/mecca-dashboard/dash/dashboard.html"
 RELEVANT = ("passt gut", "pruefen")
 LABEL_DISPLAY = {"passt gut": "passt gut", "pruefen": "prüfen"}
 NO_DEADLINE_YEAR = 2090  # Platzhalter wie 2099-12-31 = keine Frist angegeben
