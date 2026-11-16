@@ -94,8 +94,9 @@ def build_recommendations(good, check, today):
         r = soon[0]
         days = (deadline(r) - today).days
         tips.append(
-            f"Zuerst ansehen, weil die Frist knapp ist: {len(soon)} Treffer enden innerhalb von 14 Tagen, "
-            f"der früheste am {fmt_deadline(r)} (in {days} Tagen): „{r['titel'][:90]}“."
+            "Zuerst ansehen, weil die Frist knapp ist: "
+            + ("1 Treffer endet" if len(soon) == 1 else f"{len(soon)} Treffer enden")
+            + f" innerhalb von 14 Tagen, der früheste am {fmt_deadline(r)} (in {days} Tagen): „{r['titel'][:90]}“."
         )
     if good:
         tips.append(
@@ -116,7 +117,33 @@ def build_recommendations(good, check, today):
     return tips
 
 
+def status_warnings(records, today, now=None):
+    """Hinweise, falls Scraping oder Bewertung diese Woche nicht sauber gelaufen sind."""
+    warnings = []
+    now = now or datetime.now(timezone.utc)
+    scraped = [parse_dt(r.get("scrapedAt", "")) for r in records]
+    scraped = [s for s in scraped if s]
+    if not scraped:
+        warnings.append("Im Datenbestand fehlt der Zeitstempel des Scrapings. Bitte den Feed-Workflow prüfen.")
+    else:
+        age = (now - max(scraped)).days
+        if age > 8:
+            warnings.append(
+                f"Das Scraping ist seit {age} Tagen nicht mehr gelaufen (letzter Stand: "
+                f"{max(scraped).strftime('%d.%m.%Y')}). Bitte den Workflow „Update Ausschreibungen“ prüfen."
+            )
+    unreviewed = sum(1 for r in records if r.get("reviewLabel", "ungeprueft") in ("", "ungeprueft") and is_open(r, today))
+    if unreviewed:
+        warnings.append(
+            ("1 offener Treffer ist" if unreviewed == 1 else f"{unreviewed} offene Treffer sind")
+            + " noch nicht bewertet. Die Claude-Bewertung ist vermutlich "
+            "nicht oder nicht vollständig gelaufen; die Liste unten kann deshalb unvollständig sein."
+        )
+    return warnings
+
+
 def build_mail(new, all_records, today):
+    warnings = status_warnings(all_records, today)
     good = sorted((r for r in new if r["reviewLabel"] == "passt gut" and is_open(r, today)),
                   key=lambda r: (deadline(r) or date.max))
     check = sorted((r for r in new if r["reviewLabel"] == "pruefen" and is_open(r, today)),
@@ -124,10 +151,11 @@ def build_mail(new, all_records, today):
     open_total = sum(1 for r in all_records if r.get("reviewLabel") in RELEVANT and is_open(r, today))
     kw = today.isocalendar().week
 
+    n_new = len(good) + len(check)
     headline = (
-        f"{len(good) + len(check)} neue relevante Ausschreibungen: "
-        f"{len(good)} „passt gut“, {len(check)} „prüfen“."
-        if good or check else "Diese Woche gibt es keine neuen relevanten Ausschreibungen."
+        ("1 neue relevante Ausschreibung: " if n_new == 1 else f"{n_new} neue relevante Ausschreibungen: ")
+        + f"{len(good)} „passt gut“, {len(check)} „prüfen“."
+        if n_new else "Diese Woche gibt es keine neuen relevanten Ausschreibungen."
     )
     overview = (
         f"Im Dashboard stehen insgesamt {open_total} offene Ausschreibungen mit der Bewertung "
@@ -135,9 +163,13 @@ def build_mail(new, all_records, today):
     )
     tips = build_recommendations(good, check, today)
     subject = f"Ausschreibungen KW {kw}: {len(good)} passt gut, {len(check)} prüfen"
+    if warnings:
+        subject = "Achtung – " + subject
 
     # ---- Klartext ----
     lines = [headline, overview, "", f"Dashboard: {DASHBOARD_URL}", ""]
+    if warnings:
+        lines += ["ACHTUNG:"] + [f"- {w}" for w in warnings] + [""]
     if tips:
         lines += ["Empfehlungen:"] + [f"- {t}" for t in tips] + [""]
     for title, items, cap in (("Passt gut", good, MAX_GOOD), ("Prüfen", check, MAX_CHECK)):
@@ -177,6 +209,12 @@ def build_mail(new, all_records, today):
         return (f'<h3 style="margin:22px 0 6px;color:{color};font-size:16px">{e(title)} ({len(items)})</h3>'
                 f'<table role="presentation" width="100%" cellspacing="0" cellpadding="0">{"".join(rows)}</table>{more}')
 
+    warn_html = ""
+    if warnings:
+        warn_html = ('<div style="background:#fdf0e6;border:1px solid #e0b48a;border-radius:8px;padding:10px 14px;margin:16px 0 0">'
+                     '<strong>Achtung</strong><ul style="padding-left:18px;margin:6px 0 0">'
+                     + "".join(f"<li>{e(w)}</li>" for w in warnings) + "</ul></div>")
+
     tips_html = ""
     if tips:
         tips_html = ('<h3 style="margin:22px 0 6px;font-size:16px">Empfehlungen</h3><ul style="padding-left:18px;margin:0">'
@@ -190,6 +228,7 @@ def build_mail(new, all_records, today):
 <p style="margin:0 0 10px;font-size:19px;font-weight:700;line-height:1.35">{e(headline)}</p>
 <p style="margin:0 0 16px">{e(overview)}</p>
 <p style="margin:0 0 4px"><a href="{DASHBOARD_URL}" style="display:inline-block;background:#5ba872;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">Zum mecca Dashboard</a></p>
+{warn_html}
 {tips_html}
 {block("Passt gut", good, MAX_GOOD, "#2f6b45")}
 {block("Prüfen", check, MAX_CHECK, "#8a6d1f")}

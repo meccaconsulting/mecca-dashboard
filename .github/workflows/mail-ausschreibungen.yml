@@ -1,18 +1,18 @@
 name: Mail Ausschreibungen
 
-# Sendet nach der Claude-Bewertung (Sonntag, Commit "Review Ausschreibungen mit Claude")
-# eine Mail mit den neu als "passt gut"/"pruefen" bewerteten Ausschreibungen.
-# Der Samstags-Commit des Feeds (GITHUB_TOKEN) loest diesen Workflow bewusst nicht aus.
+# Woechentliche Mail, nachdem alle vorherigen Schritte durch sind:
+#   Samstag 18:00 UTC  Feed (Workflow "Update Ausschreibungen", GitHub startet oft 4-6 h spaeter)
+#   Sonntag 05:00 UTC  Claude-Bewertung (zweiter Lauf 15:00 UTC)
+#   Sonntag 18:00 UTC  diese Mail (GitHub verzoegert geplante Laeufe oft um Stunden)
+# Die Mail wird jede Woche gesendet. Sie warnt, wenn Scraping oder Bewertung nicht gelaufen sind.
 
 on:
-  push:
-    branches: [master]
-    paths:
-      - dash/data.json
+  schedule:
+    - cron: "0 18 * * 0"
   workflow_dispatch:
     inputs:
       since_days:
-        description: "Manueller Lauf: Treffer, die in den letzten n Tagen bewertet wurden"
+        description: "Treffer, die in den letzten n Tagen bewertet wurden"
         default: "7"
       dry_run:
         description: "true = nur Vorschau, keine Mail"
@@ -30,8 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Mail erzeugen und senden
         env:
@@ -41,17 +39,10 @@ jobs:
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
           MAIL_FROM: ${{ secrets.MAIL_FROM }}
           MAIL_TO: ${{ vars.MAIL_TO }}
-          EVENT: ${{ github.event_name }}
-          BEFORE: ${{ github.event.before }}
           SINCE_DAYS: ${{ github.event.inputs.since_days }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
-          if [ "$EVENT" = "push" ]; then
-            git show "$BEFORE:dash/data.json" > "$RUNNER_TEMP/data_before.json"
-            ARGS="--before-file $RUNNER_TEMP/data_before.json --skip-if-empty"
-          else
-            ARGS="--since-days ${SINCE_DAYS:-7}"
-            if [ "$DRY_RUN" = "true" ]; then ARGS="$ARGS --dry-run --out-dir $RUNNER_TEMP/mail_preview"; fi
-          fi
+          ARGS="--since-days ${SINCE_DAYS:-7}"
+          if [ "$DRY_RUN" = "true" ]; then ARGS="$ARGS --dry-run --out-dir $RUNNER_TEMP/mail_preview"; fi
           python3 scripts/send_weekly_mail.py $ARGS
           if [ "$DRY_RUN" = "true" ]; then cat "$RUNNER_TEMP/mail_preview/mail.txt"; fi
