@@ -7,6 +7,7 @@ const { createLogger } = require("./core/logger");
 const { pickLocalizedText } = require("./core/normalize");
 const { createStableHash, ensureDirectoryPath, normalizeWhitespace, sleep, stripHtmlTags, toArray, unique } = require("./core/utils");
 const { buildTedQuery } = require("./sources/ted");
+const { applyPrefilter } = require("./prefilter");
 
 
 const CSV_HEADERS = [
@@ -1349,7 +1350,7 @@ async function main() {
   const activeRecords = dedupeSameTender(filterExpiredRecords(records))
     .sort((a, b) => b.veroeffentlichungsdatum.localeCompare(a.veroeffentlichungsdatum));
   const previousRecords = await readPreviousRecords(config.output.jsonPath);
-  const outputRecords = carryOverReviews(activeRecords, previousRecords);
+  const outputRecords = applyPrefilter(carryOverReviews(activeRecords, previousRecords));
 
   await writeOutputs(outputRecords, config.output);
 
