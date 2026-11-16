@@ -3,12 +3,13 @@ name: Mail Ausschreibungen
 # Woechentliche Mail, nachdem alle vorherigen Schritte durch sind:
 #   Samstag 18:00 UTC  Feed (Workflow "Update Ausschreibungen", GitHub startet oft 4-6 h spaeter)
 #   Sonntag 05:00 UTC  Claude-Bewertung (zweiter Lauf 15:00 UTC)
-#   Sonntag 18:00 UTC  diese Mail (GitHub verzoegert geplante Laeufe oft um Stunden)
+#   Montag 06:00 UTC   diese Mail (= 07:00 Wien im Winter, 08:00 im Sommer;
+#                      GitHub verzoegert geplante Laeufe oft um Stunden)
 # Die Mail wird jede Woche gesendet. Sie warnt, wenn Scraping oder Bewertung nicht gelaufen sind.
 
 on:
   schedule:
-    - cron: "0 18 * * 0"
+    - cron: "0 6 * * 1"
   workflow_dispatch:
     inputs:
       since_days:
