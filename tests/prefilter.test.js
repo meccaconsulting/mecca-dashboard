@@ -14,50 +14,53 @@ test("Prefilter: normaler oesterreichischer Eintrag geht an die KI", () => {
   assert.equal(prefilterReason(base), null);
 });
 
-test("Prefilter: Auftraggeber im Ausland ohne EU-Programmbezug wird aussortiert", () => {
-  const record = { ...base, titel: "Erstellung eines Flächennutzungsplans", organisationLand: "Tschechien" };
-  assert.match(prefilterReason(record), /Ausland/);
-});
-
-test("Prefilter: Ausland mit Interreg oder EU-Programmbezug bleibt fuer die KI", () => {
+test("Prefilter: Eintraege aus dem Ausland werden nie per Regel aussortiert", () => {
   assert.equal(
-    prefilterReason({ ...base, organisationLand: "Slowenien", titel: "Evaluierung des Interreg-Programms" }),
+    prefilterReason({ ...base, titel: "Erstellung eines Flächennutzungsplans", organisationLand: "Tschechien" }),
     null
   );
   assert.equal(
-    prefilterReason({ ...base, organisationLand: "Tschechien", beschreibung: "Evaluierung des IROP" }),
+    prefilterReason({ ...base, titel: "Evaluierung des Interreg-Programms", organisationLand: "Slowenien" }),
     null
   );
-});
-
-test("Prefilter: mehrere Laender inklusive Oesterreich gelten nicht als Ausland", () => {
-  assert.equal(prefilterReason({ ...base, organisationLand: "Irland; Österreich; Slowenien" }), null);
 });
 
 test("Prefilter: Abruf aus Rahmenvereinbarung und Direktvergabe werden aussortiert", () => {
-  assert.match(prefilterReason({ ...base, titel: 'Abruf aus RV "Unterstützungsleistungen"' }), /Rahmenvereinbarung/);
+  const noKern = { titel: "Wartung", beschreibung: "", organisationLand: "Österreich", reviewLabel: "ungeprueft" };
+  assert.match(prefilterReason({ ...noKern, titel: 'Abruf aus RV "Unterstützungsleistungen"' }), /Rahmenvereinbarung/);
   assert.match(
-    prefilterReason({ ...base, beschreibung: "Verfahrensart: Verhandlungsverfahren ohne Aufruf zum Wettbewerb Direktvergabe" }),
+    prefilterReason({ ...noKern, beschreibung: "Verfahrensart: Verhandlungsverfahren ohne Aufruf zum Wettbewerb Direktvergabe" }),
     /Direktvergabe/
   );
   assert.match(
-    prefilterReason({ ...base, beschreibung: "erneuten Aufrufes zum Wettbewerb auf Grundlage der BBG Rahmenvereinbarung" }),
+    prefilterReason({ ...noKern, beschreibung: "erneuten Aufrufes zum Wettbewerb auf Grundlage der BBG Rahmenvereinbarung" }),
     /Rahmenvereinbarung/
   );
 });
 
-test("Prefilter: offene Rahmenvereinbarung wird nicht aussortiert", () => {
+test("Prefilter: Kernthema verhindert die Regel, die KI entscheidet", () => {
   assert.equal(
-    prefilterReason({ ...base, beschreibung: "Abschluss einer Rahmenvereinbarung, Einzelaufträge werden aus der Rahmenvereinbarung abgerufen." }),
+    prefilterReason({ ...base, titel: "Abruf aus RV Raumplanung Gemeinde X", beschreibung: "" }),
     null
   );
+  assert.equal(prefilterReason({ ...base, beschreibung: "Direktvergabe, Interreg-Projekt Österreich-Ungarn" }), null);
+});
+
+test("Prefilter: offene Rahmenvereinbarung wird nicht aussortiert", () => {
+  const record = {
+    titel: "Wartung",
+    beschreibung: "Abschluss einer Rahmenvereinbarung, Einzelaufträge werden aus der Rahmenvereinbarung abgerufen.",
+    reviewLabel: "ungeprueft"
+  };
+  assert.equal(prefilterReason(record), null);
 });
 
 test("applyPrefilter: setzt Bewertung nur fuer unpruefte Eintraege", () => {
   const now = new Date("2026-11-16T10:00:00Z");
+  const noKern = { titel: "Abruf aus RV Reinigung", beschreibung: "", organisationLand: "Österreich" };
   const records = [
-    { ...base, titel: "Ortsplan", organisationLand: "Ungarn" },
-    { ...base, titel: "Ortsplan", organisationLand: "Ungarn", reviewLabel: "passt gut", reviewScore: 85, reviewReason: "manuell" },
+    { ...noKern, reviewLabel: "ungeprueft" },
+    { ...noKern, reviewLabel: "passt gut", reviewScore: 85, reviewReason: "manuell" },
     { ...base }
   ];
 

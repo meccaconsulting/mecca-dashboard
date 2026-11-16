@@ -3,24 +3,13 @@
 /**
  * Regel-Vorfilter vor der KI-Bewertung.
  *
- * Sortiert nur Faelle aus, die ohne fachliche Abwaegung klar nicht erreichbar oder nicht
- * relevant sind. Alles Uebrige bleibt "ungeprueft" und geht an die KI-Review-Routine.
- * Die Regeln stammen aus der Durchsicht von 72 KI-Treffern (Stand 2026-11-16).
+ * Grundsatz: Lieber ein unpassender Eintrag zu viel als ein sinnvoller zu wenig. Deshalb
+ * sortiert der Filter nur Eintraege aus, bei denen sich niemand bewerben kann (Abruf aus
+ * Rahmenvereinbarung, Direktvergabe). Alles Fachliche, auch die Frage Inland/Ausland,
+ * entscheidet die KI-Review-Routine. Eintraege mit Kernthemen werden nie hart aussortiert.
  */
 
 const { normalizeWhitespace } = require("./core/utils");
-
-// Hinweise auf Programmebene der EU-Foerderung, in den Sprachen der Nachbarlaender.
-// Nur wenn so etwas im Text steht, wird ein Auftraggeber im Ausland weiter beachtet.
-const EU_PROGRAMM = new RegExp(
-  [
-    "interreg", "efre", "\\befrr\\b", "\\berfa\\b", "erdf", "\\besf\\b", "esf\\+", "\\besif\\b",
-    "kohäsion", "kohaezion", "cohesion", "soudržnosti", "kohéz", "strukturfond", "strukturális",
-    "\\birop\\b", "partnerschaftsvereinbarung", "dohoda o partnerství",
-    "operační program", "operatív program", "operativni program", "operatívny program"
-  ].join("|"),
-  "i"
-);
 
 // Abrufe aus bestehenden Rahmenvereinbarungen oder Beschaffungssystemen und Vergaben ohne
 // offenen Wettbewerb: dort kann sich niemand neu bewerben.
@@ -31,6 +20,16 @@ const NICHT_ERREICHBAR = new RegExp(
     "direktvergabe",
     "ohne (vorherige )?(bekanntmachung|aufruf zum wettbewerb)",
     "verhandlungsverfahren ohne"
+  ].join("|"),
+  "i"
+);
+
+// Kernthemen: Steht eines davon im Text, entscheidet die KI, auch bei formalem Ausschluss.
+const KERNTHEMA = new RegExp(
+  [
+    "raumplan", "raumordn", "raumentwickl", "regionalentwickl", "regionalmanag", "stadtentwickl",
+    "ortsentwickl", "siedlungsentwickl", "demograf", "demografi", "bevölkerungsprognose",
+    "standortanalyse", "standortentwickl", "interreg", "leader", "efre", "\\besf\\b", "esf\\+"
   ].join("|"),
   "i"
 );
@@ -47,13 +46,8 @@ function recordText(record) {
  */
 function prefilterReason(record) {
   const text = recordText(record);
-  const land = normalizeWhitespace(record.organisationLand);
 
-  if (land && !land.includes("Österreich") && !EU_PROGRAMM.test(text)) {
-    return "Regel: Auftraggeber im Ausland ohne Interreg- oder EU-Programmbezug.";
-  }
-
-  if (NICHT_ERREICHBAR.test(text)) {
+  if (NICHT_ERREICHBAR.test(text) && !KERNTHEMA.test(text)) {
     return "Regel: Abruf aus Rahmenvereinbarung oder Direktvergabe, keine offene Bewerbung möglich.";
   }
 
@@ -89,4 +83,4 @@ function applyPrefilter(records, now = new Date()) {
   });
 }
 
-module.exports = { applyPrefilter, prefilterReason, EU_PROGRAMM, NICHT_ERREICHBAR };
+module.exports = { applyPrefilter, prefilterReason, NICHT_ERREICHBAR, KERNTHEMA };
