@@ -1,15 +1,23 @@
 name: Mail Ausschreibungen
+# Vorschau-Laeufe (dry_run) bekommen einen eigenen Namen, damit die
+# Pruefung unten sie nicht als "Mail schon gesendet" zaehlt.
+run-name: ${{ inputs.dry_run == 'true' && 'Mail Vorschau' || 'Mail Ausschreibungen' }}
 
 # Woechentliche Mail, nachdem alle vorherigen Schritte durch sind:
-#   Samstag 18:00 UTC  Feed (Workflow "Update Ausschreibungen", GitHub startet oft 4-6 h spaeter)
+#   Samstag 17:41 UTC  Feed (Workflow "Update Ausschreibungen", GitHub startet oft 4-6 h spaeter)
 #   Sonntag 05:00 UTC  Claude-Bewertung (zweiter Lauf 15:00 UTC)
-#   Montag 06:00 UTC   diese Mail (= 07:00 Wien im Winter, 08:00 im Sommer;
-#                      GitHub verzoegert geplante Laeufe oft um Stunden)
-# Die Mail wird jede Woche gesendet. Sie warnt, wenn Scraping oder Bewertung nicht gelaufen sind.
+#   Montag 04:37 UTC   diese Mail (= 05:37 Wien im Winter, 06:37 im Sommer)
+#   Montag 09:23 UTC   Reserve, falls GitHub den ersten Lauf verschluckt
+# GitHub verzoegert geplante Laeufe zur vollen Stunde oft um Stunden oder laesst
+# sie ganz aus, daher ungerade Minuten und ein zweiter Termin. Ein geplanter Lauf
+# sendet nur, wenn seit Montag 00:00 UTC noch kein Lauf erfolgreich gesendet hat
+# (auch ein manueller zaehlt). Manuelle Laeufe senden immer.
+# Die Mail warnt, wenn Scraping oder Bewertung nicht gelaufen sind.
 
 on:
   schedule:
-    - cron: "0 6 * * 1"
+    - cron: "37 4 * * 1"
+    - cron: "23 9 * * 1"
   workflow_dispatch:
     inputs:
       since_days:
@@ -21,6 +29,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: mail-ausschreibungen
@@ -30,9 +39,26 @@ jobs:
   mail:
     runs-on: ubuntu-latest
     steps:
+      - name: Diese Woche schon gesendet?
+        id: check
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          MONDAY=$(date -u -d "$(( $(date -u +%u) - 1 )) days ago" +%F)
+          SENT=$(gh api "repos/${{ github.repository }}/actions/workflows/mail-ausschreibungen.yml/runs?status=success&created=>=${MONDAY}&per_page=50" \
+            --jq "[.workflow_runs[] | select(.id != ${{ github.run_id }} and .display_title == \"Mail Ausschreibungen\")] | length")
+          echo "Erfolgreiche Mail-Laeufe seit ${MONDAY}: ${SENT}"
+          if [ "$SENT" -gt 0 ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Mail ging diese Woche schon raus, dieser Lauf sendet nicht."
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.check.outputs.skip != 'true'
 
       - name: Mail erzeugen und senden
+        if: steps.check.outputs.skip != 'true'
         env:
           MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
           MAIL_PORT: ${{ secrets.MAIL_PORT }}
