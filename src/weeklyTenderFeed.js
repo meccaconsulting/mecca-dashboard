@@ -328,6 +328,43 @@ function carryOverReviews(records, previousRecords = []) {
   });
 }
 
+/**
+ * Behaelt Eintraege aus dem bisherigen Datenstand, die dieser Lauf nicht mehr gefunden hat,
+ * aber noch offen sind. Sonst verschwindet eine Ausschreibung, sobald sie aelter als
+ * maxAgeDays ist, eine Obergrenze greift oder ein Portal kurz nicht antwortet.
+ * Behalten wird nur, was eine kuenftige Frist hat (hoechstens retainMaxDays nach
+ * Veroeffentlichung). Eintraege ohne Frist waren bei TED und USP fast immer
+ * Vergabebekanntmachungen; sie bleiben nur, wenn der Lauf sie erneut findet.
+ */
+function retainOpenRecords(
+  previousRecords,
+  freshRecords,
+  { retainMaxDays = 180, referenceDate = startOfTodayUtc() } = {}
+) {
+  const freshKeys = new Set(freshRecords.map((record) => record.recordKey));
+  const oldestPublication = new Date(referenceDate);
+  oldestPublication.setUTCDate(oldestPublication.getUTCDate() - retainMaxDays);
+
+  return previousRecords
+    .map((record) => normalizeFeedRecord(record))
+    .filter((record) => {
+      if (freshKeys.has(record.recordKey)) {
+        return false;
+      }
+
+      const published = parseDate(record.veroeffentlichungsdatum);
+      if (!published || published.getTime() > referenceDate.getTime() + 86400000) {
+        return false;
+      }
+
+      return (
+        Boolean(parseDate(record.frist)) &&
+        !isExpiredDeadline(record.frist, referenceDate) &&
+        published.getTime() >= oldestPublication.getTime()
+      );
+    });
+}
+
 // Dieselbe Ausschreibung erscheint oft mehrfach: oberschwellig auf TED und USP, bei TED
 // zusaetzlich als Berichtigung/Aenderung. Behalten wird ein Eintrag pro Titel, bevorzugt
 // USP (verlinkt direkt aufs Vergabeportal), sonst die neueste Veroeffentlichung.
@@ -571,9 +608,15 @@ function extractUspDetailFromHtml(html) {
   return {
     cpvCodes,
     beschreibung: description || "",
-    organisationLand: USP_DEFAULT_COUNTRY
+    organisationLand: USP_DEFAULT_COUNTRY,
+    isAwardNotice: USP_AWARD_NOTICE.test(bodyText)
   };
 }
+
+// USP listet auch Vergabebekanntmachungen (Auftrag bereits vergeben). Am 23.11.2026 waren das
+// 83 von 106 USP-Eintraegen, alle ohne Frist.
+const USP_AWARD_NOTICE =
+  /Bekanntmachung vergebener Auftr|Vergabebekanntmachung|Zuschlagsbekanntmachung|Ergebnis der Bekanntmachung/i;
 
 function normalizeAnkoeBaseUrl(baseUrl) {
   const normalized = normalizeWhitespace(baseUrl);
@@ -1197,12 +1240,18 @@ async function scrapeUsp(config, logger, cutoffDate) {
   const seen = new Set();
   const seenLinks = new Set();
   let detailCount = 0;
+  let awardNoticesSkipped = 0;
   const pageSize = config.usp.pageSize || USP_DEFAULT_PAGE_SIZE;
+  // USP liefert neueste zuerst. Es wird geblaettert, bis der Stichtag erreicht ist;
+  // maxPagesPerSearch ist nur eine Sicherung gegen Endlosschleifen.
+  const maxPagesPerSearch = config.usp.maxPagesPerSearch || config.runtime.maxPagesPerSearch;
+  const maxDetails = config.usp.maxDetails || config.runtime.maxDetailsPerPortal;
 
   for (const { searchTerm, query, cpvCode } of buildUspSearches(config)) {
     logger.info("Weekly USP Suche", { searchTerm });
+    let reachedCutoff = false;
 
-    for (let pageNumber = 0; pageNumber < config.runtime.maxPagesPerSearch; pageNumber += 1) {
+    for (let pageNumber = 0; pageNumber < maxPagesPerSearch && !reachedCutoff; pageNumber += 1) {
       const start = pageNumber * pageSize;
       const apiUrl = getUspApiUrl(config, query, start, pageSize, cpvCode);
       let rows = [];
@@ -1233,6 +1282,9 @@ async function scrapeUsp(config, logger, cutoffDate) {
         }
 
         if (!isOnOrAfter(normalizedRow.veroeffentlichungsdatum, cutoffDate)) {
+          if (parseDate(normalizedRow.veroeffentlichungsdatum)) {
+            reachedCutoff = true;
+          }
           continue;
         }
 
@@ -1243,9 +1295,16 @@ async function scrapeUsp(config, logger, cutoffDate) {
 
         let detail = { cpvCodes: [], beschreibung: "", organisationLand: USP_DEFAULT_COUNTRY };
 
-        if (detailCount < config.runtime.maxDetailsPerPortal && normalizedRow.link) {
+        if (detailCount < maxDetails && normalizedRow.link) {
           try {
-            const html = await fetchUspText(normalizedRow.link, config);
+            let html;
+            try {
+              html = await fetchUspText(normalizedRow.link, config);
+            } catch {
+              // USP drosselt auch Detailseiten mit 403; nach kurzer Pause einmal neu versuchen.
+              await sleep(config.runtime.uspDetailRetryDelayMs ?? 8000);
+              html = await fetchUspText(normalizedRow.link, config);
+            }
             detail = extractUspDetailFromHtml(html);
             detailCount += 1;
             await sleep(config.runtime.uspDelayMs || 0);
@@ -1256,6 +1315,12 @@ async function scrapeUsp(config, logger, cutoffDate) {
               message: getErrorMessage(error)
             });
           }
+        }
+
+        if (detail.isAwardNotice) {
+          if (normalizedRow.link) seenLinks.add(normalizedRow.link);
+          awardNoticesSkipped += 1;
+          continue;
         }
 
         const record = normalizeFeedRecord({
@@ -1281,11 +1346,19 @@ async function scrapeUsp(config, logger, cutoffDate) {
       if (rows.length < pageSize) {
         break;
       }
+
+      if (!reachedCutoff && pageNumber + 1 >= maxPagesPerSearch) {
+        logger.warn("USP-Seitenlimit erreicht, bevor der Stichtag erreicht war", {
+          searchTerm,
+          maxPagesPerSearch
+        });
+      }
     }
 
     await sleep(config.runtime.uspDelayMs || 0);
   }
 
+  logger.info("USP abgeschlossen", { records: records.length, awardNoticesSkipped, detailCount });
   return records;
 }
 
@@ -1380,9 +1453,12 @@ async function main() {
   const records = [...tedRecords, ...uspRecords, ...ankoeRecords, ...noeRecords]
     .map((record) => normalizeFeedRecord(record))
     .filter((record, index, allRecords) => allRecords.findIndex((candidate) => candidate._recordKey === record._recordKey) === index);
-  const activeRecords = dedupeSameTender(filterExpiredRecords(records))
-    .sort((a, b) => b.veroeffentlichungsdatum.localeCompare(a.veroeffentlichungsdatum));
   const previousRecords = await readPreviousRecords(config.output.jsonPath);
+  const retainedRecords = retainOpenRecords(previousRecords, records, {
+    retainMaxDays: config.retainMaxDays
+  });
+  const activeRecords = dedupeSameTender(filterExpiredRecords([...records, ...retainedRecords]))
+    .sort((a, b) => b.veroeffentlichungsdatum.localeCompare(a.veroeffentlichungsdatum));
   const outputRecords = applyPrefilter(carryOverReviews(activeRecords, previousRecords));
 
   await writeOutputs(outputRecords, config.output);
@@ -1394,6 +1470,9 @@ async function main() {
     usp: uspRecords.length,
     ankoeRegional: ankoeRecords.length,
     noe: noeRecords.length,
+    retainedFromPrevious: outputRecords.filter((record) =>
+      retainedRecords.some((retained) => retained.recordKey === record.recordKey)
+    ).length,
     csvPath: config.output.csvPath,
     jsonPath: config.output.jsonPath,
     dataJsPath: config.output.dataJsPath
@@ -1419,6 +1498,7 @@ module.exports = {
   calculateCutoffDate,
   carryOverReviews,
   dedupeSameTender,
+  retainOpenRecords,
   scrapeAnkoeRegional,
   buildTedCountryFilter,
   buildTedNoticeTypeFilter,

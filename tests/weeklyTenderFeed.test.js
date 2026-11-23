@@ -19,6 +19,7 @@ const {
   carryOverReviews,
   countryLabel,
   dedupeSameTender,
+  retainOpenRecords,
   extractAnkoeCpvCodes,
   extractAnkoeXsrfToken,
   extractNoeRecordsFromHtml,
@@ -149,6 +150,28 @@ test("TED-Frist kommt aus der Angebotsfrist, nicht aus dem fruehen deadline-Feld
     "2026-12-05"
   );
   assert.equal(extractTedDeadline({ deadline: ["2026-11-20T09:00:00+01:00"] }), "");
+});
+
+test("retainOpenRecords behaelt offene Eintraege, die der Lauf nicht mehr gefunden hat", () => {
+  const today = new Date("2026-11-23T00:00:00Z");
+  const previous = [
+    // offen, aber aelter als der Suchzeitraum -> bleibt
+    { portal: "TED", titel: "Interreg-Evaluierung", link: "t-open", frist: "2026-11-30", veroeffentlichungsdatum: "2026-10-01", reviewLabel: "passt gut" },
+    // Frist vorbei -> weg
+    { portal: "USP Bund", titel: "Abgelaufen", link: "u-exp", frist: "2026-11-20", veroeffentlichungsdatum: "2026-11-01" },
+    // wieder gefunden -> nicht doppelt
+    { portal: "USP Bund", titel: "Wieder da", link: "u-fresh", frist: "2026-12-10", veroeffentlichungsdatum: "2026-11-10" },
+    // ohne Frist (bei TED/USP meist Vergabebekanntmachungen) -> weg
+    { portal: "USP Bund", titel: "Ohne Frist", link: "u-nofrist", frist: "", veroeffentlichungsdatum: "2026-11-05" },
+    { portal: "TED", titel: "Vergabe", link: "t-can", frist: "", veroeffentlichungsdatum: "2026-11-15" },
+    // Frist offen, aber Veroeffentlichung zu lange her -> weg
+    { portal: "ANKÖ", titel: "Open House", link: "a-2099", frist: "2099-12-31", veroeffentlichungsdatum: "2025-01-01" }
+  ];
+  const fresh = [normalizeFeedRecord({ portal: "USP Bund", titel: "Wieder da", link: "u-fresh" })];
+
+  const kept = retainOpenRecords(previous, fresh, { retainMaxDays: 180, referenceDate: today });
+  assert.deepEqual(kept.map((record) => record.link), ["t-open"]);
+  assert.equal(kept[0].reviewLabel, "passt gut");
 });
 
 test("TED laesst Vergabebekanntmachungen weg", () => {
@@ -292,6 +315,18 @@ test("USP Detail-HTML liefert CPV und Beschreibung", () => {
 
   assert.deepEqual(detail.cpvCodes, ["79419000-4"]);
   assert.match(detail.beschreibung, /Strategie und Evaluation/);
+  assert.equal(detail.isAwardNotice, false);
+});
+
+test("USP Detail-HTML erkennt Vergabebekanntmachungen", () => {
+  const award = extractUspDetailFromHtml(
+    "<p>Bekanntmachung vergebener Aufträge</p><p>Ergebnis der Bekanntmachung</p>"
+  );
+  assert.equal(award.isAwardNotice, true);
+  const open = extractUspDetailFromHtml(
+    "<p>Auftragsbekanntmachung</p><p>Zuschlagskriterien: Qualität</p>"
+  );
+  assert.equal(open.isAwardNotice, false);
 });
 
 test("ANKOE Regionalfilter laesst nur Dienstleistungsauftraege durch", () => {
