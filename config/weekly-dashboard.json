@@ -34,6 +34,7 @@
   "ted": {
     "baseUrl": "https://api.ted.europa.eu/v3/notices/search",
     "scope": "ACTIVE",
+    "maxPagesPerSearch": 4,
     "searchTerms": [
       "Raumplanung",
       "Stadtplanung",
@@ -48,6 +49,14 @@
       "SVN",
       "HUN"
     ],
+    "noticeTypes": [
+      "cn-standard",
+      "cn-social",
+      "cn-desg",
+      "pin-cfc-standard",
+      "pin-cfc-social",
+      "pin-only"
+    ],
     "fields": [
       "publication-number",
       "publication-date",
@@ -58,9 +67,9 @@
       "buyer-country",
       "organisation-country-buyer",
       "classification-cpv",
-      "deadline",
-      "deadline-date-lot",
-      "deadline-time-lot",
+      "notice-type",
+      "deadline-receipt-tender-date-lot",
+      "deadline-receipt-request-date-lot",
       "links"
     ]
   },

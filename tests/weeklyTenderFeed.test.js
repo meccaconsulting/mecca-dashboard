@@ -9,7 +9,10 @@ const {
   ANKOE_SERVICE_CONTRACT_TYPE_ID,
   ankoeRecordMatchesContractType,
   buildTedCountryFilter,
+  buildTedNoticeTypeFilter,
   buildTedSearchTerms,
+  extractTedDeadline,
+  tedNoticeMatchesNoticeTypes,
   buildUspSearches,
   buildTedWeeklyQuery,
   buildUspDetailUrl,
@@ -123,6 +126,44 @@ test("TED-Länderfilter beschränkt die Suche auf erlaubte Käuferländer", () =
     tedNoticeMatchesAllowedCountries({ "buyer-country": ["FRA"] }, ["AUT", "HUN"]),
     false
   );
+});
+
+test("TED-Frist kommt aus der Angebotsfrist, nicht aus dem fruehen deadline-Feld", () => {
+  // Echte Werte aus TED 748438-2026 (Interreg SI-HU): deadline = 20.11., Angebotsfrist = 30.11.
+  assert.equal(
+    extractTedDeadline({
+      deadline: ["2026-11-20T09:00:00+01:00"],
+      "deadline-date-lot": ["2026-11-20+01:00"],
+      "deadline-receipt-tender-date-lot": ["2026-11-30+01:00"]
+    }),
+    "2026-11-30"
+  );
+  // Mehrere Lose: spaeteste Frist
+  assert.equal(
+    extractTedDeadline({ "deadline-receipt-tender-date-lot": ["2026-12-01+01:00", "2026-12-18+01:00"] }),
+    "2026-12-18"
+  );
+  // Zweistufig: Frist fuer Teilnahmeantraege
+  assert.equal(
+    extractTedDeadline({ "deadline-receipt-request-date-lot": ["2026-12-05+01:00"] }),
+    "2026-12-05"
+  );
+  assert.equal(extractTedDeadline({ deadline: ["2026-11-20T09:00:00+01:00"] }), "");
+});
+
+test("TED laesst Vergabebekanntmachungen weg", () => {
+  const types = ["cn-standard", "pin-only"];
+  assert.equal(buildTedNoticeTypeFilter(types), "notice-type IN (cn-standard pin-only)");
+  assert.equal(
+    buildTedWeeklyQuery(
+      { type: "cpv", value: "79419000-4", noticeTypes: types },
+      new Date("2026-04-01")
+    ).includes("notice-type IN (cn-standard pin-only)"),
+    true
+  );
+  assert.equal(tedNoticeMatchesNoticeTypes({ "notice-type": "cn-standard" }, types), true);
+  assert.equal(tedNoticeMatchesNoticeTypes({ "notice-type": "can-standard" }, types), false);
+  assert.equal(tedNoticeMatchesNoticeTypes({ "notice-type": "can-standard" }, []), true);
 });
 
 test("normalizeFeedRecord setzt Dashboard-Spalten", () => {

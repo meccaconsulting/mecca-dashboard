@@ -195,18 +195,40 @@ function extractTedUrl(links) {
   return "";
 }
 
+// Angebotsfrist (bei zweistufigen Verfahren: Frist fuer Teilnahmeantraege). Das TED-Feld
+// "deadline" bzw. "deadline-date-lot" ist eine fruehere Frist (z.B. fuer Rueckfragen) und
+// fuehrte dazu, dass offene Ausschreibungen als abgelaufen aussortiert wurden.
+// Bei mehreren Losen zaehlt die spaeteste Frist, damit nichts zu frueh verschwindet.
+function latestTedDate(value) {
+  return toArray(value)
+    .flat()
+    .map(toIsoDate)
+    .filter(Boolean)
+    .sort()
+    .pop() || "";
+}
+
 function extractTedDeadline(notice) {
   return (
-    pickLocalizedText(notice.deadline) ||
-    normalizeWhitespace(
-      [
-        pickLocalizedText(notice["deadline-date-lot"]),
-        pickLocalizedText(notice["deadline-time-lot"])
-      ]
-        .filter(Boolean)
-        .join(" ")
-    )
+    latestTedDate(notice["deadline-receipt-tender-date-lot"]) ||
+    latestTedDate(notice["deadline-receipt-request-date-lot"])
   );
+}
+
+// Nur Bekanntmachungen, auf die man sich noch bewerben kann (oder Vorinformationen);
+// Vergabebekanntmachungen (can-*) sind bereits vergeben.
+function buildTedNoticeTypeFilter(noticeTypes = []) {
+  const types = unique(toArray(noticeTypes).flat().map(normalizeWhitespace).filter(Boolean));
+  return types.length ? `notice-type IN (${types.join(" ")})` : "";
+}
+
+function tedNoticeMatchesNoticeTypes(notice, noticeTypes = []) {
+  const allowed = new Set(toArray(noticeTypes).flat().map(normalizeWhitespace).filter(Boolean));
+  if (!allowed.size) {
+    return true;
+  }
+  const type = normalizeWhitespace(pickLocalizedText(notice["notice-type"]));
+  return !type || allowed.has(type);
 }
 
 function normalizeFeedRecord(record) {
@@ -416,7 +438,8 @@ function buildTedSearchTerms(config) {
 function buildTedWeeklyQuery(searchTerm, cutoffDate) {
   const dateFilter = `publication-date = (${formatTedDate(cutoffDate)} <> ${formatTedDate(new Date())})`;
   const countryFilter = buildTedCountryFilter(searchTerm.allowedBuyerCountries);
-  return [dateFilter, countryFilter, buildTedQuery(searchTerm)].filter(Boolean).join(" AND ");
+  const typeFilter = buildTedNoticeTypeFilter(searchTerm.noticeTypes);
+  return [dateFilter, countryFilter, typeFilter, buildTedQuery(searchTerm)].filter(Boolean).join(" AND ");
 }
 
 function normalizeCountryCodes(value) {
@@ -1027,7 +1050,7 @@ async function fetchUspText(url, config) {
   }
 }
 
-async function fetchTedPage(config, searchTerm, page, cutoffDate) {
+async function fetchTedPage(config, searchTerm, page, cutoffDate, logger) {
   const maxRetries = config.runtime.tedMaxRetries || 3;
 
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
@@ -1043,7 +1066,11 @@ async function fetchTedPage(config, searchTerm, page, cutoffDate) {
         },
         body: JSON.stringify({
           query: buildTedWeeklyQuery(
-            { ...searchTerm, allowedBuyerCountries: config.ted.allowedBuyerCountries },
+            {
+              ...searchTerm,
+              allowedBuyerCountries: config.ted.allowedBuyerCountries,
+              noticeTypes: config.ted.noticeTypes
+            },
             cutoffDate
           ),
           fields: config.ted.fields,
@@ -1055,10 +1082,18 @@ async function fetchTedPage(config, searchTerm, page, cutoffDate) {
         signal: controller.signal
       });
 
-      if (response.status === 429 && attempt < maxRetries) {
-        const retryAfterSeconds = Number(response.headers.get("retry-after")) || attempt + 1;
-        await sleep(retryAfterSeconds * 1500);
-        continue;
+      if (response.status === 429) {
+        if (attempt < maxRetries) {
+          const retryAfterSeconds = Number(response.headers.get("retry-after")) || attempt + 1;
+          await sleep(retryAfterSeconds * 1500);
+          continue;
+        }
+        // Frueher still als "keine Treffer" behandelt; jetzt im Log sichtbar.
+        logger?.warn("TED drosselt (429), Suchseite uebersprungen", {
+          searchTerm: searchTerm.value,
+          page
+        });
+        return [];
       }
 
       if (!response.ok) {
@@ -1079,17 +1114,15 @@ async function scrapeTed(config, logger, cutoffDate) {
   const records = [];
   const seen = new Set();
   const searchTerms = buildTedSearchTerms(config);
-  const maxRecordsPerSearchTerm = Math.max(
-    1,
-    Math.ceil(config.runtime.maxRecordsPerPortal / Math.max(1, searchTerms.length))
-  );
+  // Keine feste Obergrenze je Suchbegriff mehr: frueher waren es 300 / Anzahl Suchen (= 14),
+  // damit fielen bei breiten CPV-Codes offene Ausschreibungen weg.
+  const maxPagesPerSearch = config.ted.maxPagesPerSearch || config.runtime.maxPagesPerSearch;
 
   for (const searchTerm of searchTerms) {
     logger.info("Weekly TED Suche", { searchTerm: searchTerm.value, type: searchTerm.type });
-    let recordsForSearchTerm = 0;
 
-    for (let page = 1; page <= config.runtime.maxPagesPerSearch; page += 1) {
-      const notices = await fetchTedPage(config, searchTerm, page, cutoffDate);
+    for (let page = 1; page <= maxPagesPerSearch; page += 1) {
+      const notices = await fetchTedPage(config, searchTerm, page, cutoffDate, logger);
 
       if (notices.length === 0) {
         break;
@@ -1101,6 +1134,10 @@ async function scrapeTed(config, logger, cutoffDate) {
         }
 
         if (!tedNoticeMatchesAllowedCountries(notice, config.ted.allowedBuyerCountries)) {
+          continue;
+        }
+
+        if (!tedNoticeMatchesNoticeTypes(notice, config.ted.noticeTypes)) {
           continue;
         }
 
@@ -1127,20 +1164,16 @@ async function scrapeTed(config, logger, cutoffDate) {
 
         seen.add(record._recordKey);
         records.push(record);
-        recordsForSearchTerm += 1;
 
-        if (
-          records.length >= config.runtime.maxRecordsPerPortal ||
-          recordsForSearchTerm >= maxRecordsPerSearchTerm
-        ) {
+        if (records.length >= config.runtime.maxRecordsPerPortal) {
           break;
         }
       }
 
-      if (
-        records.length >= config.runtime.maxRecordsPerPortal ||
-        recordsForSearchTerm >= maxRecordsPerSearchTerm
-      ) {
+      if (records.length >= config.runtime.maxRecordsPerPortal) {
+        logger.warn("TED-Obergrenze erreicht, weitere Treffer werden ignoriert", {
+          maxRecordsPerPortal: config.runtime.maxRecordsPerPortal
+        });
         break;
       }
 
@@ -1388,7 +1421,10 @@ module.exports = {
   dedupeSameTender,
   scrapeAnkoeRegional,
   buildTedCountryFilter,
+  buildTedNoticeTypeFilter,
   buildTedSearchTerms,
+  extractTedDeadline,
+  tedNoticeMatchesNoticeTypes,
   buildTedWeeklyQuery,
   buildUspSearches,
   countryLabel,
